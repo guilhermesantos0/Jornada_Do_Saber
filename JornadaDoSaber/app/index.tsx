@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
 import { Link } from 'expo-router';
-// import Menu from '../components/Menu';  // Importando o componente do Menu
+import Menu from '../components/Menu';  // Importando o componente do Menu
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -39,7 +39,7 @@ const HomeScreen = () => {
         </Link>
       </View>
 
-      {/* <Menu visible={isMenuVisible} onClose={() => setMenuVisible(false)} /> */}
+      <Menu visible={isMenuVisible} onClose={() => setMenuVisible(false)} />
     </SafeAreaView>
   );
 };
@@ -51,14 +51,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 'bold',
     color: '#FF6D00',
     marginTop: 70,
   },
   subtitleContainer: {
     height: 130,
-    marginTop: 30,
+    marginTop: 10,
   },
   subtitle: {
     fontSize: 18,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 15,
-    marginTop: 15,
+    marginTop: 10,
   },
   button: {
     backgroundColor: '#4A90E2',
@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    width: '100%', 
-    height: '70%',
+    maxHeight: screenWidth * 0.3,
+    minHeight: screenWidth * 0.3,
     maxWidth: screenWidth * 0.8, 
     minWidth: screenWidth * 0.8
   },
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 30,
     fontWeight: 'bold'
   },
   hamburgerMenu: {
