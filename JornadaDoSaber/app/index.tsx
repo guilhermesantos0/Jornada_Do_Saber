@@ -25,7 +25,7 @@ const HomeScreen = () => {
         <Link href="/memoria">
           <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
             <View style={styles.buttonImageContainer}>
-              <Image style={styles.buttonImage} source={require('../assets/images/placeholder.jpg')} />
+              <Image style={styles.buttonImage} source={require('../assets/images/memoria.png')} />
             </View>
             <Text style={styles.buttonText}>JOGO DA MEMÓRIA</Text>
           </TouchableOpacity>
@@ -34,7 +34,7 @@ const HomeScreen = () => {
         <Link href="/tangram">
           <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
             <View style={styles.buttonImageContainer}>
-              <Image style={styles.buttonImage} source={require('../assets/images/placeholder.jpg')} />
+              <Image style={styles.buttonImage} source={require('../assets/images/tangram.png')} />
             </View>
             <Text style={styles.buttonText}>TANGRAM</Text>
           </TouchableOpacity>
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 70,
   },
   subtitleContainer: {
-    height: 130,
+    height: 100,
     marginTop: 10,
   },
   subtitle: {

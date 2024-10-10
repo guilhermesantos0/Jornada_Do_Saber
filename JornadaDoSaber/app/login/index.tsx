@@ -15,7 +15,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.logo} source={require('../../assets/images/placeholder.jpg')} />
+      <Image style={styles.logo} source={require('../../assets/images/logo.png')} />
 
       <Text style={styles.title}>Acesse</Text>
       <Text style={styles.subtitle}>com e-mail e senha para entrar</Text>
@@ -43,7 +43,7 @@ const LoginScreen = () => {
 
       <View style={styles.rememberContainer}>
         <View style={styles.rememberLeft}>
-          <Checkbox style={styles.checkBox} value={rememberMe} onValueChange={setRememberMe} />
+          <Checkbox value={rememberMe} onValueChange={setRememberMe} />
           <Text style={styles.rememberText}>Lembrar minha senha</Text>
         </View>
         <TouchableOpacity>
@@ -60,7 +60,7 @@ const LoginScreen = () => {
 
       <View style={styles.createAccountContainer}>
         <Text style={styles.noAccountText}>Não tem conta? </Text>
-        <Link href="/create-account" style={styles.createAccountText}>Criar uma conta</Link>
+        <Link href="/signup" style={styles.createAccountText}>Criar uma conta</Link>
       </View>
 
       <Text style={styles.versionText}>versão 1.0.0</Text>
@@ -179,9 +179,6 @@ const styles = StyleSheet.create({
   },
   versionText: {
     color: '#666',
-  },
-  checkBox: {
-    color: '#8E8E8E'
   }
 });
 
