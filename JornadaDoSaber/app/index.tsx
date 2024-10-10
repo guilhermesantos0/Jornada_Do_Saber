@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
 import { Link } from 'expo-router';
-import Menu from '../components/Menu';  // Importando o componente do Menu
+import Menu from '../components/Menu'; 
+
+import TempBar from '@/components/TempBar';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -38,6 +40,9 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </Link>
       </View>
+
+      { /* essa barra vai ser utilizada apenas no desenvolvimento, não precisa ser estilizada */}
+      <TempBar />
 
       <Menu visible={isMenuVisible} onClose={() => setMenuVisible(false)} />
     </SafeAreaView>

@@ -38,7 +38,6 @@ const Menu = ({ visible, onClose }) => {
   );
 };
 
-// Estilos
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
