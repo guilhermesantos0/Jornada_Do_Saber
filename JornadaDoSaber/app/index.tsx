@@ -11,33 +11,45 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
 
+      <Image
+        source={require('@/assets/images/logo.png')} 
+        style={styles.logo}
+      />
+
       <Text style={styles.title}>JOGOS</Text>
       <View style={styles.subtitleContainer}>
+        <Image source={require('@/assets/images/home/thought_balloon.png')} style={styles.thoughtBalloon} />
         <Text style={styles.subtitle}>Confira os Jogos !!</Text>
+        <Image source={require('@/assets/images/home/child_1.png')} style={styles.thinkingCharacter} />
       </View>
 
+
       <View style={styles.buttonContainer}>
-        <Link href="/memoria">
-          <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
+        <Link href="/memoria" asChild>
+          <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
-              <Image style={styles.buttonImage} source={require('@/assets/images/memoria.png')} />
+              <Image style={styles.buttonImage} source={require('@/assets/images/home/memoria.png')} />
             </View>
             <Text style={styles.buttonText}>JOGO DA MEMÓRIA</Text>
           </TouchableOpacity>
         </Link>
 
-        <Link href="/tangram">
-          <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
+        <Link href="/memoria" asChild>
+          <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
-              <Image style={styles.buttonImage} source={require('@/assets/images/tangram.png')} />
+              <Image style={styles.buttonImage} source={require('@/assets/images/home/tangram.png')} />
             </View>
             <Text style={styles.buttonText}>TANGRAM</Text>
           </TouchableOpacity>
         </Link>
+
+        <Image source={require('@/assets/images/home/child_2.png')} style={styles.leftChild} />
+        <Image source={require('@/assets/images/home/asd_hand.png')} style={styles.rightHand} />
+
       </View>
 
       { /* essa barra vai ser utilizada apenas no desenvolvimento, não precisa ser estilizada */}
-      <TempBar />
+      {/* <TempBar /> */}
 
     </SafeAreaView>
   );
@@ -53,23 +65,39 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     color: '#FF6D00',
-    marginTop: 70,
+    marginTop: 80,
   },
   subtitleContainer: {
-    height: 100,
+    height: 150,
+    width: '80%',
     marginTop: 10,
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  thoughtBalloon: {
+    width: 200,
+    height: 100,
+    position: 'absolute',
+    top: 0,
+    right: 100,
+    resizeMode: 'contain',
   },
   subtitle: {
     fontSize: 18,
-    marginVertical: 10,
     color: '#666',
+    textAlign: 'center',
+    position: 'absolute',
+    top: 10,
+    right: 115,
+    width: '50%'
   },
   buttonContainer: {
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     gap: 15,
-    marginTop: 10,
+    marginTop: 10
   },
   button: {
     backgroundColor: '#4A90E2',
@@ -79,10 +107,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    maxHeight: screenWidth * 0.3,
-    minHeight: screenWidth * 0.3,
-    maxWidth: screenWidth * 0.8, 
-    minWidth: screenWidth * 0.8
+    width: '80%',
+    height: '27%',
   },
   buttonImageContainer: {
     minWidth: 50,
@@ -97,8 +123,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold'
+    fontSize: 32,
+    fontWeight: 'bold',
   },
   hamburgerMenu: {
     position: 'absolute',
@@ -108,6 +134,53 @@ const styles = StyleSheet.create({
   hamburgerText: {
     fontSize: 30,
     color: '#000',
+  },
+  logo: {
+    position: 'absolute',
+    top: 30,
+    right: 10,
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+  },
+  balloonTail: {
+    position: 'absolute',
+    bottom: -5,
+    right: -15,
+    width: 0,
+    height: 0,
+    borderLeftWidth: 10,
+    borderRightWidth: 10,
+    borderBottomWidth: 15,
+    borderStyle: 'solid',
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: '#f0f0f0', // mesma cor do balão
+    transform: [{ rotate: '45deg' }],
+  },
+  thinkingCharacter: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    position: 'absolute',
+    right: 1,
+    bottom: 0,
+  },
+  leftChild: {
+    position: 'absolute',
+    bottom: 20,
+    left: 40,
+    width: 120,
+    height: 120,
+    resizeMode: 'contain',
+  },
+  rightHand: {
+    position: 'absolute',
+    bottom: -115,
+    right: 0,
+    width: 250,
+    height: 250,
+    resizeMode: 'contain',
   },
 });
 

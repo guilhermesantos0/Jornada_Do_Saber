@@ -11,7 +11,7 @@ export default function TempBar() {
         <Link href="/" style={styles.navButton}>
             <Ionicons name="home" size={28} style={{ marginBottom: -3 }} />
         </Link>
-        <Link href="/jogo-da-memoria" style={styles.navButton}>
+        <Link href="/memoria" style={styles.navButton}>
             <Ionicons name="extension-puzzle" size={24} color="black" />
         </Link>
         <Link href="/tangram" style={styles.navButton}>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         height: 60,
         position: 'absolute',
         bottom: 0,
-        backgroundColor: '#f0f0f0', // Fundo claro, não precisa de muito estilo
+        backgroundColor: '#f0f0f0',
     },
       navButton: {
         flex: 1,

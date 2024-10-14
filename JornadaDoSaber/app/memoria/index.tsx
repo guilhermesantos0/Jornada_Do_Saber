@@ -10,7 +10,6 @@ const screenHeight = Dimensions.get('window').height;
 const JogoDaMemoria = () => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* Usando ScrollView para permitir rolagem */}
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.title}>JOGO DA MEMÓRIA</Text>
         <View style={styles.subtitleContainer}>
@@ -21,7 +20,7 @@ const JogoDaMemoria = () => {
           <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 1 }}}>
             <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
               <View style={styles.buttonImageContainer}>
-                <Image style={styles.buttonImage} source={require('@/assets/images/memoria_easy.png')} />
+                <Image style={styles.buttonImage} source={require('@/assets/images/memoria/memoria_easy.png')} />
               </View>
               <Text style={styles.buttonText}>FÁCIL</Text>
             </TouchableOpacity>
@@ -30,7 +29,7 @@ const JogoDaMemoria = () => {
           <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 2 }}}>
             <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
               <View style={styles.buttonImageContainer}>
-                <Image style={styles.buttonImage} source={require('@/assets/images/memoria_mid.png')} />
+                <Image style={styles.buttonImage} source={require('@/assets/images/memoria/memoria_mid.png')} />
               </View>
               <Text style={styles.buttonText}>MÉDIO</Text>
             </TouchableOpacity>
@@ -39,7 +38,7 @@ const JogoDaMemoria = () => {
           <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 3 }}}>
             <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
               <View style={styles.buttonImageContainer}>
-                <Image style={styles.buttonImage} source={require('@/assets/images/memoria_hard.png')} />
+                <Image style={styles.buttonImage} source={require('@/assets/images/memoria/memoria_hard.png')} />
               </View>
               <Text style={styles.buttonText}>DIFÍCIL</Text>
             </TouchableOpacity>
@@ -55,7 +54,7 @@ const JogoDaMemoria = () => {
         </View>
 
         {/* Barra temporária usada apenas para desenvolvimento */}
-        <TempBar />
+        {/* <TempBar /> */}
       </ScrollView>
     </SafeAreaView>
   );
