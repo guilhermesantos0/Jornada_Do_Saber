@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
 import { Link } from 'expo-router';
-import Menu from '../components/Menu'; 
 
 import TempBar from '@/components/TempBar';
 
 const screenWidth = Dimensions.get('window').width;
 
 const HomeScreen = () => {
-  const [isMenuVisible, setMenuVisible] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.hamburgerMenu} onPress={() => setMenuVisible(true)}>
-        <Text style={styles.hamburgerText}>☰</Text>
-      </TouchableOpacity>
 
       <Text style={styles.title}>JOGOS</Text>
       <View style={styles.subtitleContainer}>
@@ -44,7 +39,6 @@ const HomeScreen = () => {
       { /* essa barra vai ser utilizada apenas no desenvolvimento, não precisa ser estilizada */}
       <TempBar />
 
-      <Menu visible={isMenuVisible} onClose={() => setMenuVisible(false)} />
     </SafeAreaView>
   );
 };
