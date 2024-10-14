@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensio
 import { Link } from 'expo-router';
 
 import TempBar from '@/components/TempBar';
+import Logo from '@/components/Logo';
+import Back from '@/components/Back';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -10,10 +12,15 @@ const screenHeight = Dimensions.get('window').height;
 const JogoDaMemoria = () => {
   return (
     <SafeAreaView style={styles.container}>
+
+      <Back url="/" />
+      <Logo />
+
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.title}>JOGO DA MEMÓRIA</Text>
         <View style={styles.subtitleContainer}>
           <Text style={styles.subtitle}>O jogo da memória apresenta três modos de dificuldade: Fácil, Médio e Difícil</Text>
+          <Image style={styles.subtitleImage} source={require('@/assets/images/memoria/lamp.png')} />
         </View>
 
         <View style={styles.buttonContainer}>
@@ -73,25 +80,32 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     color: '#FF6D00',
-    marginTop: 70,
+    marginTop: 100,
   },
   subtitleContainer: {
     height: 100,
     marginTop: 10,
     paddingHorizontal: 20,
+    position: 'relative'
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
     margin: 10,
     color: '#666',
-    textAlign: 'center',
+    textAlign: 'left',
+    fontWeight: 'bold'
+  },
+  subtitleImage: {
+    position: 'absolute',
+    right: 25,
+    bottom: 20
   },
   buttonContainer: {
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 15,
-    marginTop: 10,
+    marginTop: 0,
   },
   button: {
     backgroundColor: '#4A90E2',

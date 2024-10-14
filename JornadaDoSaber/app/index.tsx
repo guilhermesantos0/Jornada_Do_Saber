@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
 import { Link } from 'expo-router';
 
-import TempBar from '@/components/TempBar';
+import Logo from '@/components/Logo';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -11,10 +11,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
 
-      <Image
-        source={require('@/assets/images/logo.png')} 
-        style={styles.logo}
-      />
+      <Logo />
 
       <Text style={styles.title}>JOGOS</Text>
       <View style={styles.subtitleContainer}>
@@ -90,7 +87,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 115,
-    width: '50%'
+    width: '50%',
+    fontWeight: 'bold'
   },
   buttonContainer: {
     width: '100%',
@@ -135,14 +133,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: '#000',
   },
-  logo: {
-    position: 'absolute',
-    top: 30,
-    right: 10,
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-  },
   balloonTail: {
     position: 'absolute',
     bottom: -5,
@@ -155,7 +145,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderBottomColor: '#f0f0f0', // mesma cor do balão
+    borderBottomColor: '#f0f0f0',
     transform: [{ rotate: '45deg' }],
   },
   thinkingCharacter: {
