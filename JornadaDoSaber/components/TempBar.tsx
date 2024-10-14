@@ -17,9 +17,7 @@ export default function TempBar() {
         <Link href="/tangram" style={styles.navButton}>
             <Text>TG</Text>
         </Link>
-        <Link href='/login' style={styles.navButton}>
-            <AntDesign name="user" size={24} color="black" />
-        </Link>
+        
       </View>
     )
 }
