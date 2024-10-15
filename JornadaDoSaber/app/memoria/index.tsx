@@ -52,15 +52,16 @@ const JogoDaMemoria = () => {
           </Link>
         </View>
 
-        {/* Seção de Regras */}
         <View style={styles.rulesContainer}>
-          <Text style={styles.rulesTitle}>📜 Regras</Text>
+          <View style={styles.rulesTitleContainer}>
+            <Image style={styles.rulesImage} source={require("@/assets/images/rules.png")} />
+            <Text style={styles.rulesTitle}>Regras</Text>
+          </View>
           <Text style={styles.rulesText}>
             Jogo da Memória: vire duas cartas por vez para encontrar pares iguais.
           </Text>
         </View>
 
-        {/* Barra temporária usada apenas para desenvolvimento */}
         {/* <TempBar /> */}
       </ScrollView>
     </SafeAreaView>
@@ -139,12 +140,12 @@ const styles = StyleSheet.create({
   rulesContainer: {
     marginTop: 30,
     paddingHorizontal: 20,
-    alignItems: 'center',
+    alignItems: 'flex-start'
   },
   rulesTitle: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#FF6D00',
+    color: '#FF6D00'
   },
   rulesText: {
     fontSize: 16,
@@ -152,6 +153,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
+  rulesTitleContainer: {
+    flexDirection: 'row',
+    marginLeft: 20
+  }
 });
 
 export default JogoDaMemoria;
