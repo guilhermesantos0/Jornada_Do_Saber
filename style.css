@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .card {
+    background-color: #D0E7FF;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  .card img {
+    margin-bottom: 20px;
+  }
+  
+  footer h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  footer p {
+    font-size: 14px;
+  }
+  
+  footer img {
+    margin: 0 10px;
+  }
+  
