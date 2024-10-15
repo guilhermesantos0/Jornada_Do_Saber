@@ -1,31 +1,51 @@
+/* Ajuste para o cabeçalho (navbar) */
+.navbar {
+  background-color: #FF8225;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+/* Ajuste para o rodapé */
+footer {
+  background-color: #FF8225;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer h5, footer p {
+  color: #fff;
+}
+
+/* Outras customizações */
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .navbar-brand img {
-    margin-right: 10px;
-  }
-  
-  .card {
-    background-color: #D0E7FF;
-    border: none;
-    border-radius: 15px;
-  }
-  
-  .card img {
-    margin-bottom: 20px;
-  }
-  
-  footer h5 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  footer p {
-    font-size: 14px;
-  }
-  
-  footer img {
-    margin: 0 10px;
-  }
-  
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #e0e0e0;
+}
+
+.card-body {
+  background-color: #f0f0f0;
+}
+
+.btn-primary {
+  background-color: #FF8225;
+  border-color: #FF8225;
+}
+
+.btn-primary:hover {
+  background-color: #e6711f;
+  border-color: #e6711f;
+}
