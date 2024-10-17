@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensions, ScrollView } from 'react-native';
 import { Link } from 'expo-router';
 
-import TempBar from '@/components/TempBar';
 import Logo from '@/components/Logo';
 import Back from '@/components/Back';
 
@@ -62,7 +61,6 @@ const JogoDaMemoria = () => {
           </Text>
         </View>
 
-        {/* <TempBar /> */}
       </ScrollView>
     </SafeAreaView>
   );

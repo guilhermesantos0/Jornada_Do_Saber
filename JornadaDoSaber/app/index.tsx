@@ -42,9 +42,6 @@ const HomeScreen = () => {
 
       </View>
 
-      { /* essa barra vai ser utilizada apenas no desenvolvimento, não precisa ser estilizada */}
-      {/* <TempBar /> */}
-
     </SafeAreaView>
   );
 };
