@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet, Text, Dimensions, Image, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, Dimensions, SafeAreaView } from 'react-native';
 import MemoryCard from '@/components/MemoryCard';
 import { useLocalSearchParams } from 'expo-router';
 
@@ -11,7 +11,7 @@ const { width } = Dimensions.get('window');
 
 const Jogar = () => {
   const { difficulty } = useLocalSearchParams();
-  
+
   const getCardPairs = () => {
     switch (difficulty) {
       case '1':
@@ -28,6 +28,23 @@ const Jogar = () => {
   const numberOfPairs = getCardPairs();
   const totalCards = numberOfPairs * 2;
 
+  const cardImages = [
+    require('@/assets/images/memoria/cards/1.jpg'),
+    require('@/assets/images/memoria/cards/2.jpg'),
+    require('@/assets/images/memoria/cards/3.jpg'),
+    require('@/assets/images/memoria/cards/4.jpg'),
+  ];
+
+  const [flippedCards, setFlippedCards] = useState(Array(totalCards).fill(false));
+
+  const handleCardPress = (index: number) => {
+    setFlippedCards((prev) => {
+      const newFlipped = [...prev];
+      newFlipped[index] = !newFlipped[index];
+      return newFlipped;
+    });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Back url="/memoria"/>
@@ -35,14 +52,16 @@ const Jogar = () => {
 
       <Text style={styles.title}>JOGO DA MEMÓRIA</Text>
       <Text style={styles.subtitle}>Nível {difficulty === '1' ? 'Fácil' : difficulty === '2' ? 'Médio' : 'Difícil'}</Text>
-      <Text style={styles.instructions}>encontre as {numberOfPairs} combinações :) !!</Text>
+      <Text style={styles.instructions}>Encontre as {numberOfPairs} combinações :) !!</Text>
       
       <View style={styles.cardsContainer}>
         {Array.from({ length: totalCards }).map((_, index) => (
           <MemoryCard
             key={index}
             size={difficulty}
-            onPress={() => console.log(`Card ${index} pressed`)}
+            cardImage={cardImages[index % numberOfPairs]}
+            isFlipped={flippedCards[index]}
+            onPress={() => handleCardPress(index)}
           />
         ))}
       </View>
@@ -82,38 +101,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     width: width * 0.9,
-  },
-  childImage: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-  },
-  bubbleContainer: {
-    position: 'absolute',
-    bottom: 130, // Ajuste a posição do balão de fala
-    right: 50, // Ajuste a posição do balão de fala
-    alignItems: 'flex-start',
-  },
-  bubbleImage: {
-    width: 80,
-    height: 80,
-    resizeMode: 'contain',
-    position: 'absolute',
-    zIndex: 1,
-  },
-  bubbleText: {
-    backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 10,
-    marginLeft: 10,
-    elevation: 2, // Sombra para o texto do balão
-    zIndex: 2,
-    color: '#333',
-    fontSize: 14,
-    maxWidth: 150,
   },
 });
 
