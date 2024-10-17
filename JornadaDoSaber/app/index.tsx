@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensio
 import { Link } from 'expo-router';
 
 import Logo from '@/components/Logo';
+import ChildBaloon from '@/components/ChildBaloon';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -14,11 +15,7 @@ const HomeScreen = () => {
       <Logo />
 
       <Text style={styles.title}>JOGOS</Text>
-      <View style={styles.subtitleContainer}>
-        <Image source={require('@/assets/images/home/thought_balloon.png')} style={styles.thoughtBalloon} />
-        <Text style={styles.subtitle}>Confira os Jogos !!</Text>
-        <Image source={require('@/assets/images/home/child_1.png')} style={styles.thinkingCharacter} />
-      </View>
+      <ChildBaloon label='Confira os Jogos !!' />
 
 
       <View style={styles.buttonContainer}>
@@ -31,7 +28,7 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </Link>
 
-        <Link href="/memoria" asChild>
+        <Link href="/tangram" asChild>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
               <Image style={styles.buttonImage} source={require('@/assets/images/home/tangram.png')} />
@@ -132,21 +129,6 @@ const styles = StyleSheet.create({
   hamburgerText: {
     fontSize: 30,
     color: '#000',
-  },
-  balloonTail: {
-    position: 'absolute',
-    bottom: -5,
-    right: -15,
-    width: 0,
-    height: 0,
-    borderLeftWidth: 10,
-    borderRightWidth: 10,
-    borderBottomWidth: 15,
-    borderStyle: 'solid',
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: '#f0f0f0',
-    transform: [{ rotate: '45deg' }],
   },
   thinkingCharacter: {
     width: 100,

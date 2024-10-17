@@ -24,8 +24,8 @@ const JogoDaMemoria = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 1 }}}>
-            <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
+          <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 1 }}} asChild>
+            <TouchableOpacity style={styles.button}>
               <View style={styles.buttonImageContainer}>
                 <Image style={styles.buttonImage} source={require('@/assets/images/memoria/memoria_easy.png')} />
               </View>
@@ -33,8 +33,8 @@ const JogoDaMemoria = () => {
             </TouchableOpacity>
           </Link>
 
-          <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 2 }}}>
-            <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
+          <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 2 }}} asChild>
+            <TouchableOpacity style={styles.button}>
               <View style={styles.buttonImageContainer}>
                 <Image style={styles.buttonImage} source={require('@/assets/images/memoria/memoria_mid.png')} />
               </View>
@@ -42,8 +42,8 @@ const JogoDaMemoria = () => {
             </TouchableOpacity>
           </Link>
 
-          <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 3 }}}>
-            <TouchableOpacity style={[styles.button, { width: screenWidth * 0.8 }]}>
+          <Link href={{ pathname: "/memoria/jogar", params: { difficulty: 3 }}} asChild>
+            <TouchableOpacity style={styles.button}>
               <View style={styles.buttonImageContainer}>
                 <Image style={styles.buttonImage} source={require('@/assets/images/memoria/memoria_hard.png')} />
               </View>
@@ -54,7 +54,7 @@ const JogoDaMemoria = () => {
 
         <View style={styles.rulesContainer}>
           <View style={styles.rulesTitleContainer}>
-            <Image style={styles.rulesImage} source={require("@/assets/images/rules.png")} />
+            <Image source={require("@/assets/images/rules.png")} />
             <Text style={styles.rulesTitle}>Regras</Text>
           </View>
           <Text style={styles.rulesText}>
@@ -109,23 +109,23 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   button: {
-    backgroundColor: '#4A90E2',
+    backgroundColor: "#4A90E2",
     borderRadius: 10,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "flex-start",
+    flexDirection: "row",
     maxHeight: screenHeight * 0.15,
     minHeight: screenHeight * 0.15,
-    maxWidth: screenWidth * 0.8, 
-    minWidth: screenWidth * 0.8
+    maxWidth: screenWidth * 0.8,
+    minWidth: screenWidth * 0.8,
   },
   buttonImageContainer: {
     minWidth: 50,
     flexBasis: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginRight: 10,
   },
   buttonImage: {
@@ -133,9 +133,9 @@ const styles = StyleSheet.create({
     width: 40,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
   rulesContainer: {
     marginTop: 30,

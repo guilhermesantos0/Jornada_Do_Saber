@@ -1,55 +1,54 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import MemoryCard from '@/components/MemoryCard'; // Ajuste o caminho conforme necessário
-import { RouteProp } from '@react-navigation/native'; // Dependendo de como está estruturada a navegação
+import { View, StyleSheet, Text, Dimensions, Image, SafeAreaView } from 'react-native';
+import MemoryCard from '@/components/MemoryCard';
 import { useLocalSearchParams } from 'expo-router';
+
+import ChildBaloon from '@/components/ChildBaloon';
+import Back from '@/components/Back';
+import Logo from '@/components/Logo';
 
 const { width } = Dimensions.get('window');
 
-interface MemoryGameScreenProps {
-  route: RouteProp<{ params: { difficulty: number } }, 'params'>;
-}
-
-const images = [
-  require('@/assets/images/memoria/cards/1.jpg'),
-  require('@/assets/images/memoria/cards/2.jpg'),
-  // Adicione mais imagens conforme necessário
-];
-
-const MemoryGameScreen: React.FC<MemoryGameScreenProps> = ({ route }) => {
+const Jogar = () => {
   const { difficulty } = useLocalSearchParams();
+  
+  const getCardPairs = () => {
+    switch (difficulty) {
+      case '1':
+        return 2;
+      case '2':
+        return 3;
+      case '3':
+        return 4;
+      default:
+        return 2;
+    }
+  };
 
-  // Baseado na dificuldade, você define quantos pares deseja.
-  let numPairs: number;
-  switch (difficulty) {
-    case 1: // Fácil
-      numPairs = 2;
-      break;
-    case 2: // Médio
-      numPairs = 4;
-      break;
-    case 3: // Difícil
-      numPairs = 6;
-      break;
-    default:
-      numPairs = 2;
-  }
-
-  // Duplicando as imagens para criar pares
-  const selectedImages = images.slice(0, numPairs);
-  const cards = [...selectedImages, ...selectedImages].sort(() => Math.random() - 0.5);
+  const numberOfPairs = getCardPairs();
+  const totalCards = numberOfPairs * 2;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        Jogo da Memória - Nível {difficulty === 1 ? 'Fácil' : difficulty === 2 ? 'Médio' : 'Difícil'}
-      </Text>
+    <SafeAreaView style={styles.container}>
+      <Back url="/memoria"/>
+      <Logo />
+
+      <Text style={styles.title}>JOGO DA MEMÓRIA</Text>
+      <Text style={styles.subtitle}>Nível {difficulty === '1' ? 'Fácil' : difficulty === '2' ? 'Médio' : 'Difícil'}</Text>
+      <Text style={styles.instructions}>encontre as {numberOfPairs} combinações :) !!</Text>
+      
       <View style={styles.cardsContainer}>
-        {cards.map((img, index) => (
-          <MemoryCard key={index} image={img} onFlip={() => console.log('Card flipped')} />
+        {Array.from({ length: totalCards }).map((_, index) => (
+          <MemoryCard
+            key={index}
+            size={difficulty}
+            onPress={() => console.log(`Card ${index} pressed`)}
+          />
         ))}
       </View>
-    </View>
+
+      <ChildBaloon label='Será que você consegue achar ?' />
+    </SafeAreaView>
   );
 };
 
@@ -57,19 +56,65 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fff',
+    justifyContent: 'flex-start',
+    backgroundColor: '#ffffff',
+    padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#FF6D00',
-    marginVertical: 20,
+    color: '#FFA500',
+    marginTop: 100,
+  },
+  subtitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#333',
+    marginVertical: 10,
+  },
+  instructions: {
+    fontSize: 18,
+    color: '#666',
+    marginBottom: 20,
   },
   cardsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    width: width * 0.9,
+  },
+  childImage: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+  },
+  bubbleContainer: {
+    position: 'absolute',
+    bottom: 130, // Ajuste a posição do balão de fala
+    right: 50, // Ajuste a posição do balão de fala
+    alignItems: 'flex-start',
+  },
+  bubbleImage: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
+    position: 'absolute',
+    zIndex: 1,
+  },
+  bubbleText: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
+    marginLeft: 10,
+    elevation: 2, // Sombra para o texto do balão
+    zIndex: 2,
+    color: '#333',
+    fontSize: 14,
+    maxWidth: 150,
   },
 });
 
-export default MemoryGameScreen;
+export default Jogar;
