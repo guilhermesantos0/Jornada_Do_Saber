@@ -31,6 +31,8 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="memoria/index" options={{ headerShown: false }} />
         <Stack.Screen name="memoria/jogar/index" options={{ headerShown: false }} />
+        <Stack.Screen name="tangram/index" options={{ headerShown: false }} />
+        <Stack.Screen name="tangram/jogar/index" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
