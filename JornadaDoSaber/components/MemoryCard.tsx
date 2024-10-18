@@ -1,103 +1,98 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Animated, Image, Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
+import React, { useState } from 'react';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, interpolate } from 'react-native-reanimated';
 
 interface MemoryCardProps {
-  image: any;
-  onFlip: () => void;
+  onPress: () => void;
+  cardImage: any;
+  size: string;
+  isFlipped: boolean; // adicionando o estado de flip global
 }
 
-const MemoryCard: React.FC<MemoryCardProps> = ({ image, onFlip }) => {
-  const flipAnimation = useRef(new Animated.Value(0)).current;
-  const [isFlipped, setIsFlipped] = useState(false);
+const MemoryCard: React.FC<MemoryCardProps> = ({ onPress, cardImage, size, isFlipped }) => {
 
-  const frontInterpolate = flipAnimation.interpolate({
-    inputRange: [0, 180],
-    outputRange: ['0deg', '180deg'],
-  });
-
-  const backInterpolate = flipAnimation.interpolate({
-    inputRange: [0, 180],
-    outputRange: ['180deg', '360deg'],
-  });
-
-  const flipToFront = () => {
-    Animated.spring(flipAnimation, {
-      toValue: 180,
-      useNativeDriver: true,
-    }).start();
-    setIsFlipped(true);
-  };
-
-  const flipToBack = () => {
-    Animated.spring(flipAnimation, {
-      toValue: 0,
-      useNativeDriver: true,
-    }).start();
-    setIsFlipped(false);
-  };
+  const flipAnim = useSharedValue(isFlipped ? 1 : 0); // usa o estado isFlipped para definir o estado inicial
 
   const handlePress = () => {
-    if (isFlipped) {
-      flipToBack();
-    } else {
-      flipToFront();
-    }
-    onFlip();
+    onPress(); // passa o evento para o pai para controle global
   };
 
+  // Animação da frente do cartão (verso)
+  const frontStyle = useAnimatedStyle(() => {
+    const rotation = interpolate(flipAnim.value, [0, 1], [0, 180]);
+    return {
+      transform: [{ rotateY: `${rotation}deg` }],
+    };
+  });
+
+  // Animação da parte de trás do cartão (imagem revelada)
+  const backStyle = useAnimatedStyle(() => {
+    const rotation = interpolate(flipAnim.value, [0, 1], [180, 360]);
+    return {
+      transform: [{ rotateY: `${rotation}deg` }],
+    };
+  });
+
+  // Atualiza a animação sempre que o estado de flip mudar
+  React.useEffect(() => {
+    flipAnim.value = withTiming(isFlipped ? 1 : 0, { duration: 300 });
+  }, [isFlipped]);
+
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.card}>
-      <Animated.View style={[styles.cardInner, { transform: [{ rotateY: frontInterpolate }] }]}>
-        <View style={styles.frontFace}>
-          <Text style={styles.questionMark}>?</Text>
-        </View>
+    <TouchableOpacity onPress={handlePress} style={styles.cardContainer}>
+      {/* Verso do card */}
+      <Animated.View style={[styles.card, frontStyle, size === '1' ? styles.easy : size === '2' ? styles.mid : styles.hard]}>
+        <Image 
+          source={require('@/assets/images/memoria/cards/card_back.png')} 
+          style={styles.cardBackImage} 
+        />
       </Animated.View>
-      <Animated.View style={[styles.cardInner, styles.cardBack, { transform: [{ rotateY: backInterpolate }] }]}>
-        <Image source={image} style={styles.cardImage} />
+
+      {/* Frente do card (Imagem revelada) */}
+      <Animated.View style={[styles.card, backStyle, size === '1' ? styles.easy : size === '2' ? styles.mid : styles.hard, { position: 'absolute' }]}>
+        <Image 
+          source={cardImage} 
+          style={styles.cardImageRevealed} 
+        />
       </Animated.View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  card: {
-    width: width * 0.4,
-    height: width * 0.4,
+  cardContainer: {
     margin: 10,
   },
-  cardInner: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    backfaceVisibility: 'hidden',
-  },
-  frontFace: {
+  card: {
     backgroundColor: '#4A90E2',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
-    height: '100%',
     borderRadius: 10,
+    backfaceVisibility: 'hidden',
+    elevation: 5,
   },
-  cardBack: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
+  easy: {
+    width: 150,
+    height: 150,
   },
-  questionMark: {
-    fontSize: 40,
-    color: '#fff',
+  mid: {
+    width: 125,
+    height: 125,
   },
-  cardImage: {
-    width: '100%',
-    height: '100%',
+  hard: {
+    width: 100,
+    height: 100,
+  },
+  cardBackImage: {
+    width: 60,
+    height: 60,
     resizeMode: 'contain',
+  },
+  cardImageRevealed: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    borderRadius: 10,
   },
 });
 
