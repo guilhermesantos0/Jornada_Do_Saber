@@ -20,31 +20,30 @@ body {
 /* Cabeçalho */
 header {
     display: flex;
-    justify-content: center; /* Centraliza as abas */
+    justify-content: space-between; /* Alinha a logo à esquerda e o menu à direita */
     align-items: center; /* Centraliza verticalmente */
     background-color: #f58220;
-    padding: 10px 0; /* Mantém o padding ajustado */
+    padding: 10px 40px; /* Ajuste de padding para reduzir a altura */
     position: relative;
+    height: auto; /* Deixa a altura automática */
 }
 
 /* Logo alinhada à esquerda */
 header .logo {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-right: 20px; /* Espaço à direita da logo */
 }
 
 header .logo img {
-    width: 80px;
+    width: 80px; /* Reduz o tamanho da logo */
 }
 
 /* Navegação */
 header nav {
     display: flex;
-    justify-content: center; /* Centraliza as abas */
-    align-items: center; /* Centraliza verticalmente as abas */
-    gap: 550px; /* Espaçamento entre as abas */
+    justify-content: center;
+    flex-grow: 1; /* Faz o nav ocupar o espaço necessário */
+    gap: 300px; /* Ajusta o espaço entre os links de navegação */
+    align-items: center; /* Certifica-se de que os elementos estão centralizados verticalmente */
 }
 
 /* Estilo das abas */
@@ -52,7 +51,8 @@ header nav a {
     color: black;
     font-weight: bold;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Tamanho ajustado do texto */
+    padding: 5px 10px; /* Reduz o padding em torno do texto */
 }
 
 /* Aba "Jogos" com imagem e texto */
@@ -60,7 +60,8 @@ header nav a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f58220;
+    background-color: transparent;
+    text-align: center;
 }
 
 .imagem-jogos {
@@ -76,44 +77,46 @@ header nav a {
     font-weight: bold;
 }
 
+/* Centralizar os textos "Quem Somos" e "Onde Estamos" */
+header nav a:first-child, /* "Quem Somos" */
+header nav a:last-child { /* "Onde Estamos" */
+    text-align: center; /* Centraliza o texto */
+    margin: 0 20px; /* Ajusta as margens para espaçar os elementos */
+}
+
 /* Responsividade para a Header */
 @media (max-width: 1024px) {
     header nav {
-        gap: 200px; /* Reduz o espaçamento das abas em telas menores */
+        gap: 100px; /* Ajusta o espaçamento das abas em telas menores */
     }
 }
 
 @media (max-width: 768px) {
     header {
         flex-direction: column;
+        padding: 10px 20px; /* Mantém compacto em telas menores */
+    }
+
+    header .logo {
+        margin-right: 0; /* Remove a margem da logo */
     }
 
     header nav {
         flex-direction: column; /* Empilha as abas verticalmente */
-        gap: 20px; /* Ajusta o espaçamento entre as abas */
-    }
-
-    .logo {
-        position: static;
-        transform: none;
-        margin-bottom: 10px; /* Espaçamento entre a logo e as abas */
-    }
-
-    .jogos-abas {
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        gap: 20px;
     }
 }
 
 @media (max-width: 480px) {
     header nav {
         flex-direction: column;
-        align-items: center;
-        gap: 10px; /* Espaçamento ainda menor para telas pequenas */
+        align-items: center; /* Centraliza as abas */
+        gap: 10px;
     }
 
     header .logo img {
-        width: 60px; /* Reduz o tamanho da logo em telas pequenas */
+        width: 60px; /* Reduz o tamanho da logo */
     }
 }
 
@@ -159,8 +162,6 @@ footer p {
         margin-bottom: 10px;
     }
 }
-
-
 
 /* Seção Principal */
 main {
@@ -210,10 +211,9 @@ main {
     border-radius: 20px; /* Cantos arredondados */
     padding: 80px; /* Mantendo o padding padrão */
     color: white; /* Texto em branco */
-    text-align:justify;
+    text-align: justify;
     margin-bottom: auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-
 }
 
 .jogo-memoria h2 {
@@ -268,7 +268,7 @@ main {
     display: block;
     margin: 20px auto 0 auto;
     width: 100%;
-    max-width: 400;
+    max-width: 400px;
     height: auto;
     border-radius: 20px;
     margin-top: 15px;
@@ -287,10 +287,6 @@ main {
     border-radius: 0; /* Remove o arredondamento para tornar a imagem quadrada */
     max-width: 100%; /* Garante que a imagem não ultrapasse a largura do container */
 }
-
-
-
-
 
 /* Seção "Níveis de Dificuldade" */
 .dificuldade {
@@ -326,100 +322,8 @@ main {
     display: block;
     margin: 20px auto 0 auto;
     width: 75%;
-    max-width: 400;
+    max-width: 400px;
     height: auto;
     border-radius: 20px;
     margin-top: 15px;
-}
-
-/* Rodapé */
-footer {
-    background-color: #f58220;
-    padding: auto 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
-
-footer div {
-    width: 33%;
-    text-align: center;
-}
-
-footer img {
-    width: 30px;
-    margin-bottom: 5px;
-}
-
-footer p {
-    font-size: 1rem;
-    color: black;
-}
-
-/* Estilo específico para as redes sociais */
-.redes-sociais p {
-    font-size: 1.5rem;
-    color: black;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.rede-social {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px; /* Espaçamento horizontal entre os ícones */
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
-    .jogo-memoria, .vantagens, .dificuldade {
-        width: 45%;
-    }
-
-    footer div {
-        width: 45%;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header nav {
-        margin-top: 10px;
-    }
-
-    main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .jogo-memoria, .vantagens, .dificuldade {
-        width: 80%;
-    }
-
-    footer div {
-        width: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    .jogo-memoria, .vantagens, .dificuldade {
-        width: 100%;
-        padding: 15px;
-    }
-
-    footer {
-        flex-direction: column;
-    }
-
-    footer div {
-        width: 100%;
-    }
 }
