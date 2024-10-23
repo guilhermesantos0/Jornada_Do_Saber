@@ -11,7 +11,7 @@ body {
     color: black;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-weight: bold;
@@ -20,134 +20,279 @@ body {
 /* Cabeçalho */
 header {
     display: flex;
-    justify-content: space-between; /* Alinha a logo à esquerda e o menu à direita */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     background-color: #f58220;
-    padding: 10px 40px; /* Ajuste de padding para reduzir a altura */
+    padding: 10px 0;
     position: relative;
-    height: auto; /* Deixa a altura automática */
 }
 
-/* Logo alinhada à esquerda */
 header .logo {
-    margin-right: 20px; /* Espaço à direita da logo */
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-43%);
 }
 
 header .logo img {
-    width: 80px; /* Reduz o tamanho da logo */
+    width: 80px;
 }
 
-/* Navegação */
 header nav {
     display: flex;
     justify-content: center;
-    flex-grow: 1; /* Faz o nav ocupar o espaço necessário */
-    gap: 300px; /* Ajusta o espaço entre os links de navegação */
-    align-items: center; /* Certifica-se de que os elementos estão centralizados verticalmente */
+    align-items: center;
+    gap: 350px;
 }
 
-/* Estilo das abas */
+.jogos-link,
 header nav a {
     color: black;
     font-weight: bold;
     text-decoration: none;
-    font-size: 1.2rem; /* Tamanho ajustado do texto */
-    padding: 5px 10px; /* Reduz o padding em torno do texto */
+    font-size: 1.5rem;
 }
 
-/* Aba "Jogos" com imagem e texto */
 .jogos-abas {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: transparent;
-    text-align: center;
 }
 
 .imagem-jogos {
     width: 40px;
-    height: auto;
     margin-bottom: 5px;
-}
-
-.jogos-link {
-    font-size: 1.2rem;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Centralizar os textos "Quem Somos" e "Onde Estamos" */
-header nav a:first-child, /* "Quem Somos" */
-header nav a:last-child { /* "Onde Estamos" */
-    text-align: center; /* Centraliza o texto */
-    margin: 0 20px; /* Ajusta as margens para espaçar os elementos */
 }
 
 /* Responsividade para a Header */
 @media (max-width: 1024px) {
     header nav {
-        gap: 100px; /* Ajusta o espaçamento das abas em telas menores */
+        gap: 200px;
     }
 }
 
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 10px 20px; /* Mantém compacto em telas menores */
-    }
-
-    header .logo {
-        margin-right: 0; /* Remove a margem da logo */
     }
 
     header nav {
-        flex-direction: column; /* Empilha as abas verticalmente */
-        justify-content: center;
+        flex-direction: column;
         gap: 20px;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
     }
 }
 
 @media (max-width: 480px) {
     header nav {
-        flex-direction: column;
-        align-items: center; /* Centraliza as abas */
         gap: 10px;
     }
 
     header .logo img {
-        width: 60px; /* Reduz o tamanho da logo */
+        width: 60px;
     }
 }
 
-/* Rodapé */
+/* Seção Principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.imagem-vantagens {
+    display: block;
+    margin: 20px auto 15px;
+    width: 50px;
+}
+
+/* Seções comuns */
+
+.jogo-memoria {
+    background-color: #87A2FF;
+    text-align: justify;
+    max-width: 464px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.vantagens {
+    max-width: 464px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.vantagens img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.dificuldade {
+    max-width: 464px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.dificuldade img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+/* Seções de texto */
+.dificuldade h2,
+.jogo-memoria h2,
+.vantagens h2 {
+    font-size: 2.0rem;
+    margin-bottom: 10px;
+}
+
+.jogo-memoria h2 {
+    text-align: center;
+    color: #1d2d67;
+}
+
+.jogo-memoria p {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.dificuldade ul,
+.vantagens ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dificuldade ul li,
+.vantagens ul li {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.vantagens .memoria {
+    color: #87a2ff;
+}
+.vantagens .cognitivo {
+    color: #ffd687;
+}
+.vantagens .acessibilidade {
+    color: #e04040;
+}
+.vantagens .diversao {
+    color: #94d25d;
+}
+.vantagens .competicao {
+    color: #9b59b6;
+}
+
+.dificuldade .facil {
+    color: #3ab54a;
+}
+.dificuldade .medio {
+    color: #f58220;
+}
+.dificuldade .dificil {
+    color: #e94e77;
+}
+
+/* Responsividade da Seção Principal */
+@media (max-width: 1024px) {
+    .dificuldade,
+    .jogo-memoria,
+    .vantagens {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dificuldade,
+    .jogo-memoria,
+    .vantagens {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dificuldade,
+    .jogo-memoria,
+    .vantagens {
+        width: 100%;
+    }
+}
+
 footer {
     background-color: #f58220;
     padding: 20px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: flex-start; /* Garante que os h2 fiquem alinhados no topo */
     text-align: center;
     width: 100%;
-    position: relative;
     bottom: 0;
-    left: 0;
 }
 
-footer div {
+footer nav {
     width: 33%;
+    flex-direction: column;
+    justify-content: flex-start; /* Garante o alinhamento no topo das divs */
+    align-items: center;
     text-align: center;
 }
 
-footer img {
+footer h2 {
+    margin-top: 0; /* Remove qualquer margem superior extra */
+    font-size: 1.2rem; /* Ajusta o tamanho, se necessário */
+}
+
+
+footer p {
+    font-size: 1rem;
+}
+
+.local-icon {
+    width: 20px;
+    margin-bottom: 5px;
+}
+
+
+.fone-icon {
+    width: 20px;
+    margin-bottom: 5px;
+}
+
+.rede-social {
     width: 30px;
     margin-bottom: 5px;
 }
 
-footer p {
-    font-size: 1rem;
-    color: black;
+.rede-social-instagram {
+    width: 50px;
+    margin-bottom: 5px;
 }
+
+.rede-social-facebook {
+    width: 50px;
+    margin-bottom: 5px;
+}
+
 
 /* Responsividade do Rodapé */
 @media (max-width: 768px) {
@@ -158,172 +303,50 @@ footer p {
     }
 
     footer div {
-        width: 100%; /* Garante que os itens ocupem a largura completa */
+        width: 100%;
         margin-bottom: 10px;
     }
 }
 
-/* Seção Principal */
-main {
-    flex: 1; /* Faz o conteúdo principal crescer para ocupar o espaço */
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    gap: 20px;
-    flex-wrap: wrap;
+/* Aplica o efeito de sublinhado a todos os links na navegação */
+nav a {
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: black; /* Cor do texto */
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para o efeito */
 }
 
-.dificuldade {
-    max-width: 464px;
-    background-color: #90C2FF;
-    border-radius: 20px;
-    padding: 20px;
-    color: black;
-    text-align: left;
-    margin-bottom: 20px;
+/* Efeito de sublinhado animado para todos os links */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Espessura do sublinhado */
+    left: 0%;
+    bottom: 0;
+    background-color: black;
+    transition: width 0.3s ease;
 }
 
-.vantagens {
-    max-width: 464px;
-    background-color: #90C2FF;
-    border-radius: 20px;
-    padding: 20px;
-    color: black;
-    text-align: left;
-    margin-bottom: 20px;
+/* .local-icon {
+    left: -50%;
 }
 
-.jogo-memoria {
-    max-width: 464px;
-    background-color: #87a2ff;
-    border-radius: 20px;
-    padding: 20px;
-    color: white;
-    text-align: left;
-    margin-bottom: 20px;
-}
+.fone-icon {
+    left: -50%;
+} */
 
-/* Seção "Jogo da Memória" */
-.jogo-memoria {
-    margin-top: 80px;
-    width: 30%;
-    background-color: #87a2ff; /* Azul claro para a caixa */
-    border-radius: 20px; /* Cantos arredondados */
-    padding: 80px; /* Mantendo o padding padrão */
-    color: white; /* Texto em branco */
-    text-align: justify;
-    margin-bottom: auto;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-}
-
-.jogo-memoria h2 {
-    color: #1d2d67; /* Título em azul escuro */
-    font-size: 1.7rem; /* Aumentar o tamanho do título */
-    font-weight: bold;
-    margin-bottom: 15px; /* Espaço maior entre o título e o texto */
-}
-
-.jogo-memoria p {
-    font-size: 1.2rem; /* Aumentar o tamanho do texto */
-    line-height: 1.5; /* Espaçamento entre as linhas */
-    color: #ffffff; /* Texto em branco */
-}
-
-/* Seção "Vantagens" */
-.vantagens {
-    margin-top: 100px;
-    text-align: left;
-    width: 30%;
-    background-color: #fefefe;
-    border-radius: 20px;
-    padding: 20px;
-    padding-top: 0; /* Remove o padding superior da seção */
-    margin-top: -10px; /* Use um valor negativo para aproximar ainda mais da header */
-}
-
-.vantagens h2 {
-    color: #f58220;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.vantagens ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.vantagens ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    line-height: 1.2;
-}
-
-.vantagens .memoria { color: #87a2ff; }
-.vantagens .cognitivo { color: #ffd687; }
-.vantagens .acessibilidade { color: #e04040; }
-.vantagens .diversao { color: #94d25d; }
-.vantagens .competicao { color: #9b59b6; }
-
-.vantagens img {
-    display: block;
-    margin: 20px auto 0 auto;
+/* Quando o mouse passar sobre o link, o sublinhado aparece */
+nav a:hover::after {
     width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 20px;
-    margin-top: 15px;
-    border-radius: 0;
 }
 
-/* Estilo para a imagem acima de "Vantagens" */
-.imagem-vantagens {
-    display: block;
-    margin: 0 auto 0 auto; /* Remove a margem superior para aproximar a imagem do topo */
-    width: 50px !important; /* Ajuste o tamanho conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
-    border: none; /* Remove bordas */
-    outline: none; /* Remove qualquer contorno */
-    box-shadow: none; /* Remove qualquer sombra */
-    border-radius: 0; /* Remove o arredondamento para tornar a imagem quadrada */
-    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do container */
+/* Excluir o efeito de sublinhado da logo */
+nav header .logo img {
+    text-decoration: none; /* Garante que a logo não tenha sublinhado */
 }
 
-/* Seção "Níveis de Dificuldade" */
-.dificuldade {
-    margin-top: 80px;
-    width: 30%;
-    background-color: #fefefe;
-    border-radius: 20px;
-    padding: 20px;
-}
-
-.dificuldade h2 {
-    color: #f58220;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.dificuldade ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.dificuldade ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    line-height: 1.2;
-}
-
-.dificuldade .facil { color: #3ab54a; }
-.dificuldade .medio { color: #f58220; }
-.dificuldade .dificil { color: #e94e77; }
-
-.dificuldade img {
-    display: block;
-    margin: 20px auto 0 auto;
-    width: 75%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 20px;
-    margin-top: 15px;
+nav .logo::after {
+    display: none; /* Remove o efeito ::after da logo */
 }
