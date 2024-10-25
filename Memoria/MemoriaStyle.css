@@ -25,6 +25,7 @@ header {
     background-color: #f58220;
     padding: 10px 0;
     position: relative;
+    min-height: 100px; /* Define uma altura mínima para o header */
 }
 
 header .logo {
@@ -123,7 +124,12 @@ main {
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Garante que o botão fique na parte inferior */
+    align-items: center; /* Centraliza o botão horizontalmente */
 }
+
 
 .vantagens {
     max-width: 464px;
@@ -349,4 +355,26 @@ nav header .logo img {
 
 nav .logo::after {
     display: none; /* Remove o efeito ::after da logo */
+}
+
+.botao-jogar {
+    display: inline-block;
+    background-color: #0C1844; /* Fundo preto */
+    color: white; /* Texto branco */
+    padding: 15px 30px; /* Espaçamento interno do botão */
+    text-align: center;
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 2.0rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    margin-top: 20px;
+    text-decoration: none; /* Remove o sublinhado do link */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para hover */
+    margin-top: auto; /* Garante que o botão fique no final */
+    width: 300px;
+}
+
+.botao-jogar:hover {
+    background-color: #333333; /* Muda o fundo para um cinza mais escuro ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levantar" o botão ao passar o mouse */
 }
