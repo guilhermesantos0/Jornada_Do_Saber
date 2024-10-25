@@ -328,33 +328,48 @@ nav a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; /* Espessura do sublinhado */
+    height: 3px; /* Espessura do sublinhado */
     left: 0%;
     bottom: 0;
     background-color: black;
     transition: width 0.3s ease;
 }
 
-/* .local-icon {
-    left: -50%;
+/* Ajusta os links dentro do rodapé para evitar que o sublinhado se estenda */
+footer nav a {
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: black; /* Cor do texto */
+    position: relative;
+    display: inline-block; /* Garante que o link seja apenas do tamanho do texto */
+    padding-bottom: 5px;
+    transition: color 0.3s ease; /* Transição suave para o efeito */
 }
 
-.fone-icon {
-    left: -50%;
-} */
+/* Efeito de sublinhado animado para todos os links */
+footer nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Espessura do sublinhado */
+    left: 0;
+    bottom: -2px; /* Ajusta a posição do sublinhado */
+    background-color: black;
+    transition: width 0.3s ease; /* Transição suave para o sublinhado */
+}
+
+footer nav a:hover::after {
+    width: 100%; /* Sublinha apenas o tamanho do texto */
+}
+
+/* Corrige o alinhamento das imagens nos links */
+footer nav a img {
+    vertical-align: middle; /* Garante que a imagem fique alinhada ao texto */
+    margin-right: 5px; /* Espaçamento entre a imagem e o texto */
+}
 
 /* Quando o mouse passar sobre o link, o sublinhado aparece */
 nav a:hover::after {
     width: 100%;
-}
-
-/* Excluir o efeito de sublinhado da logo */
-nav header .logo img {
-    text-decoration: none; /* Garante que a logo não tenha sublinhado */
-}
-
-nav .logo::after {
-    display: none; /* Remove o efeito ::after da logo */
 }
 
 .botao-jogar {
@@ -377,4 +392,34 @@ nav .logo::after {
 .botao-jogar:hover {
     background-color: #333333; /* Muda o fundo para um cinza mais escuro ao passar o mouse */
     transform: translateY(-2px); /* Efeito de "levantar" o botão ao passar o mouse */
+}
+
+/* Remove qualquer efeito da logo */
+nav .logo a {
+    text-decoration: none; /* Remove o sublinhado padrão */
+    pointer-events: none; /* Desativa qualquer comportamento de hover ou clique */
+}
+
+/* Remove o efeito ::after (sublinhado) especificamente da logo */
+nav .logo a::after {
+    content: none; /* Remove qualquer sublinhado ou efeito adicional */
+}
+
+/* Remove qualquer efeito da logo */
+header nav.logo a, 
+header nav.logo a::after, 
+header nav .logo a::after {
+    text-decoration: none !important; /* Remove o sublinhado e qualquer efeito residual */
+    content: none !important;
+    pointer-events: auto;
+    transition: none !important;
+}
+/* Remove qualquer efeito da logo */
+header nav.logo a, 
+header nav.logo a::after, 
+header nav .logo a::after {
+    text-decoration: none !important; /* Remove o sublinhado e qualquer efeito residual */
+    content: none !important;
+    pointer-events: auto;
+    transition: none !important;
 }
