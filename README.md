@@ -1,6 +1,6 @@
 Projeto Desenvolvimento Multi Plataforma referente ao grupo " O Semeador " <br>
 <br>
-Integrantes:
+Integrantes: <br>
 Felipe Mariotto Guerstenmajer 23.01011-8 <br>
 Vinicius Varella 23.01008-8 <br>
 Heitor Miranda 23.00562-9 <br>
