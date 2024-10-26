@@ -103,7 +103,7 @@ header nav a {
 main {
     flex: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 20px;
     gap: 20px;
     flex-wrap: wrap;
@@ -221,6 +221,81 @@ main {
 }
 .dificuldade .dificil {
     color: #e94e77;
+}
+
+.fale-conosco-destaque {
+    color: #E04040;
+    font-weight: bold;
+}
+
+.fale-conosco-top-destaque {
+    color: #87A2FF;    ;
+    font-weight: bold;
+}
+
+.fale-conosco-secao {
+    text-align: center; /* Centraliza o texto da seção */
+    max-width: 500px; /* Largura máxima da seção */
+    margin: 0 auto; /* Centraliza a seção na página */
+    padding: 20px; /* Espaçamento interno */
+}
+
+h2 {
+    font-size: 2rem; /* Tamanho da fonte responsivo */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+p {
+    font-size: 1rem; /* Tamanho da fonte padrão */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.contatos {
+    display: flex; /* Usar flexbox para organizar os contatos em linha */
+    flex-direction: column; /* Coluna para cada contato */
+    align-items: center; /* Alinha os itens ao centro */
+}
+
+.contato-email, 
+.contato-telefone, 
+.contato-whatsapp, 
+.contato-atendimento {
+    display: flex; /* Usar flexbox para organizar imagem e texto */
+    align-items: center; /* Alinha imagem e texto verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    margin-bottom: 10px; /* Espaçamento entre os contatos */
+    max-width: 300px;
+}
+
+.contato-icone {
+    width: 30px; /* Ajuste o tamanho do ícone */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
+.contato-email p, 
+.contato-telefone p, 
+.contato-whatsapp p, 
+.contato-atendimento p {
+    padding: 5px 10px; /* Ajuste os valores conforme necessário */
+    margin: 0; /* Remove margens padrão */
+    display: inline-block; /* Permite que o padding funcione corretamente */
+    font-weight: bold;
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.5rem; /* Reduz o tamanho do título */
+    }
+
+    p {
+        font-size: 0.9rem; /* Reduz o tamanho do texto */
+    }
+
+    .contato-icone {
+        width: 20px; /* Tamanho menor para ícones em telas pequenas */
+    }
 }
 
 /* Responsividade da Seção Principal */
