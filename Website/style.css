@@ -1,51 +1,273 @@
-/* Ajuste para o cabeçalho (navbar) */
-.navbar {
-  background-color: #FF8225;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar-brand, .navbar-nav .nav-link {
-  color: #fff !important;
+/* Estilos do Corpo */
+body {
+  font-family: 'Baloo Thambi 2', cursive;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-weight: bold;
 }
 
-/* Ajuste para o rodapé */
-footer {
-  background-color: #FF8225;
+/* -------------------------------------------- */
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f58220;
+  padding: 10px 0;
+  position: relative;
+  min-height: 100px;
+}
+
+header .logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-43%);
+}
+
+header .logo img {
+  width: 80px;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 350px;
+}
+
+.jogos-link, header nav a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.jogos-abas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagem-jogos {
+  width: 40px;
+  margin-bottom: 5px;
+}
+
+/* Responsividade para a Header */
+@media (max-width: 1024px) {
+  header nav {
+      gap: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+  }
+
+  header nav {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .logo {
+      position: static;
+      transform: none;
+      margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav {
+      gap: 10px;
+  }
+
+  header .logo img {
+      width: 60px;
+  }
+}
+
+/* -------------------------------------------- */
+/* Main (Conteúdo Principal) */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
   padding: 20px 0;
+  gap: 300px;
+  flex-wrap: wrap;
+}
+
+/* Estilos das caixas de jogos */
+.caixa-jogo {
+  background-color: #87A2FF;
+  border-radius: 20px;
+  padding: 20px 25px; /* Aumenta o padding para expandir a altura */
+  margin: 10px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Ajustes nas imagens da App Store e Google Play */
+.app-download {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Ajusta a distância entre as imagens */
+  margin-top: 20px; /* Aproxima as imagens das caixas de texto */
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.app-download-btn {
+  width: 180px; /* Aumenta o tamanho das imagens */
+  max-width: 100%;
+  height: auto;
+}
+
+.icone-jogo {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.caixa-jogo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.caixa-jogo p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Estilos dos botões dentro de .botoes */
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  align-items: center;
+}
+
+.botao-saiba-mais, .botao-jogar {
+  display: inline-block;
+  padding: 20px 35px; /* Aumenta o padding para expandir o tamanho visual */
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem; /* Aumenta um pouco o tamanho da fonte */
+  margin-bottom: 10px;
+}
+
+.botao-saiba-mais {
+  background-color: #0C1844;
+}
+
+.botao-jogar {
+  background-color: #E94E77;
+}
+
+/* -------------------------------------------- */
+/* Footer */
+footer {
+  background-color: #f58220;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+
+footer nav {
+  width: 33%;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-footer h5, footer p {
-  color: #fff;
+footer h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
 }
 
-/* Outras customizações */
-body {
-  font-family: Arial, sans-serif;
+footer p {
+  font-size: 1rem;
 }
 
-.container {
-  margin-top: 50px;
+.local-icon, .fone-icon, .rede-social {
+  width: 20px;
+  margin-bottom: 5px;
 }
 
-.card {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.rede-social-instagram, .rede-social-facebook {
+  width: 50px;
+  margin-bottom: 5px;
 }
 
-.card-header {
-  background-color: #e0e0e0;
+/* Responsividade do Rodapé */
+@media (max-width: 768px) {
+  footer {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  footer div {
+      width: 100%;
+      margin-bottom: 10px;
+  }
 }
 
-.card-body {
-  background-color: #f0f0f0;
+/* -------------------------------------------- */
+/* Efeitos de Navegação */
+nav a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.btn-primary {
-  background-color: #FF8225;
-  border-color: #FF8225;
+nav a::after, footer nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  transition: width 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: #e6711f;
-  border-color: #e6711f;
+nav a:hover::after, footer nav a:hover::after {
+  width: 100%;
+}
+
+footer nav a {
+  display: inline-block;
+}
+
+/* Remove efeitos da logo */
+header .logo a, header .logo a::after {
+  text-decoration: none !important;
+  content: none !important;
+  transition: none !important;
 }

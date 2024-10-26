@@ -1,93 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Semeador - Página Principal</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <a class="navbar-brand" href="#">
-      <img src="images/logo-semeador.png" alt="Logo" width="50" height="50">
-      O Semeador
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">QUEM SOMOS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">JOGOS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ONDE ESTAMOS</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jogos - O Semeador</title>
+        <link rel="icon" href="images/logo-semeador.png" type="image/x-icon">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
 
-  <!-- Main content -->
-  <div class="container my-5">
-    <div class="row">
-      <!-- Jogo da Memória -->
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 text-center p-4">
-          <div class="card-body">
-            <img src="images/memoria-icon.png" alt="Jogo da Memória" class="mb-3" width="50" height="50">
-            <h4 class="card-title">Jogo da Memória</h4>
-            <p class="card-text">No Jogo da Memória do Semeador, combine pares para fortalecer seu conhecimento de forma divertida e educativa.</p>
-            <a href="JogoDaMemoria.html" class="btn btn-dark">SAIBA MAIS</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Tangram -->
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 text-center p-4">
-          <div class="card-body">
-            <img src="images/tangram-icon.png" alt="Tangram" class="mb-3" width="50" height="50">
-            <h4 class="card-title">Tangram</h4>
-            <p class="card-text">No Jogo da Trilha do Semeador, avance no tabuleiro respondendo perguntas educativas para chegar ao objetivo final antes dos adversários.</p>
-            <a href="#" class="btn btn-dark">SAIBA MAIS</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- Cabeçalho -->
+        <header>
+            <nav class="logo">
+                <a href="index.html">
+                    <img src="images/logo-semeador.png" alt="Logo O Semeador">
+                </a>
+            </nav>
+            <nav>
+                <a href="QuemSomos.html">Quem Somos</a>
+                <div class="jogos-abas">
+                    <img src="images/jogos-icon.png" alt="controle" class="imagem-jogos">
+                    <a href="#jogos" class="jogos-link"></a>
+                </div>
+                <a
+                    href="https://www.google.com/maps?q=Rua+dos+Meninos,+555+-+São+Caetano+do+Sul,+SP">Onde Estamos</a>
+            </nav>
+        </header>
 
-  <!-- Footer -->
-  <footer class="bg-warning py-4">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-4">
-          <h5>ONDE ESTAMOS</h5>
-          <p>Rua dos Meninos, 555 - São Caetano do Sul - SP - 09680-300</p>
-        </div>
-        <div class="col-md-4">
-          <h5>FALE CONOSCO</h5>
-          <p>Fone/Fax: 11 4238-3100 <br> osemeador@semeadorista.org.br</p>
-        </div>
-        <div class="col-md-4">
-          <h5>REDES SOCIAIS</h5>
-          <a href="#"><img src="images/instagram-icon.png" alt="Instagram" width="30"></a>
-          <a href="#"><img src="images/facebook-icon.png" alt="Facebook" width="30"></a>
-        </div>
-      </div>
-      <div class="mt-3">
-        <a href="#"><img src="images/appstore-icon.png" alt="App Store" width="100"></a>
-        <a href="#"><img src="images/googleplay-icon.png" alt="Google Play" width="100"></a>
-      </div>
-    </div>
-  </footer>
+        <!-- Conteúdo Principal -->
+        <main>
+            <section class="caixa-jogo">
+                <img
+                    src="images/memoria-icon.png"
+                    alt="Ícone do Jogo da Memória"
+                    class="icone-jogo">
+                <h2>JOGO DA MEMÓRIA</h2>
+                <p>No Jogo da Memória do Semeador, você combina pares de forma divertida para
+                    fortalecer seu conhecimento. A cada acerto, sua memória é estimulada e seu
+                    aprendizado ganha um impulso. Pensado para ser educativo e leve, o jogo traz
+                    desafios que testam sua capacidade de memorização, tornando o aprendizado mais
+                    dinâmico e agradável. Combine os pares, aprenda enquanto se diverte e veja o
+                    quanto consegue avançar!</p>
+                <!-- Botões alinhados -->
+                <div class="botoes">
+                    <a href="JogoDaMemoria.html" class="botao-saiba-mais">SAIBA MAIS</a>
+                    <a href="pagina-jogo.html" class="botao-jogar">JOGAR</a>
+                </div>
+            </section>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+            <section class="caixa-jogo">
+                <img
+                    src="images/tangram-icon.png"
+                    alt="Ícone do Jogo Tangram"
+                    class="icone-jogo">
+                <h2>TANGRAM</h2>
+                <p>No Jogo da Trilha do Semeador, avance pelo tabuleiro respondendo perguntas
+                    educativas para alcançar o objetivo final antes dos adversários. A cada resposta
+                    correta, você ganha a chance de avançar, aproximando-se da vitória de forma
+                    divertida e cheia de aprendizado. Esse jogo foi pensado para tornar o
+                    conhecimento acessível e empolgante, incentivando o estudo enquanto você se
+                    diverte. Chegue ao final da trilha e mostre que você é o grande campeão do
+                    Semeador!</p>
+                <!-- Botões alinhados -->
+                <div class="botoes">
+                    <a href="pagina-tangram.html" class="botao-saiba-mais">SAIBA MAIS</a>
+                    <a href="pagina-jogo-tangram.html" class="botao-jogar">JOGAR</a>
+                </div>
+            </section>
+
+            <!-- Div separada para os botões de download -->
+            <div class="app-download">
+                <img
+                    src="images/appstore-icon.png"
+                    alt="Disponível na App Store"
+                    class="app-download-btn">
+                <img
+                    src="images/googleplay-icon.png"
+                    alt="Disponível no Google Play"
+                    class="app-download-btn">
+            </div>
+        </main>
+
+        <!-- Rodapé -->
+        <footer>
+            <nav class="onde-estamos">
+                <a
+                    href="https://www.google.com/maps?q=Rua+dos+Meninos,+555+-+São+Caetano+do+Sul,+SP"
+                    target="_blank">
+                    <img src="images/local-icon.png" alt="Ícone de localização" class="local-icon">
+                    <h2>Onde Estamos</h2>
+                    <p>Rua dos Meninos, 555 - São Caetano do Sul - SP - 09580-300</p>
+                </a>
+            </nav>
+            <nav class="fale-conosco">
+                <a href="FaleConosco.html">
+                    <img src="images/fone-icon.png" alt="Ícone de Telefone" class="fone-icon">
+                    <h2>Fale Conosco</h2>
+                    <p>Fone/Fax: 11 4238-3100 - osemear@escola.org.br</p>
+                </a>
+            </nav>
+            <nav class="redes-sociais">
+                <img
+                    src="images/redes-icon.png"
+                    alt="Ícone de redes sociais"
+                    class="rede-social">
+                <h2>Redes Sociais</h2>
+                <a href="https://www.instagram.com/metodistaosemeador/" target="_blank">
+                    <img
+                        src="images/instagram-icon.png"
+                        alt="Ícone Instagram"
+                        class="rede-social-instagram">
+                </a>
+                <a href="https://www.facebook.com/escolaosemeador?locale=pt_BR" target="_blank">
+                    <img
+                        src="images/facebook-icon.png"
+                        alt="Ícone Facebook"
+                        class="rede-social-facebook">
+                </a>
+            </nav>
+        </footer>
+
+    </body>
 </html>

@@ -17,7 +17,8 @@ body {
     font-weight: bold;
 }
 
-/* Cabeçalho */
+/* -------------------------------------------- */
+/* Header */
 header {
     display: flex;
     justify-content: center;
@@ -46,8 +47,7 @@ header nav {
     gap: 350px;
 }
 
-.jogos-link,
-header nav a {
+.jogos-link, header nav a {
     color: black;
     font-weight: bold;
     text-decoration: none;
@@ -99,7 +99,8 @@ header nav a {
     }
 }
 
-/* Seção Principal */
+/* -------------------------------------------- */
+/* Main */
 main {
     flex: 1;
     display: flex;
@@ -116,7 +117,6 @@ main {
 }
 
 /* Seções comuns */
-
 .jogo-memoria {
     background-color: #87A2FF;
     text-align: justify;
@@ -126,12 +126,11 @@ main {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Garante que o botão fique na parte inferior */
-    align-items: center; /* Centraliza o botão horizontalmente */
+    justify-content: flex-end;
+    align-items: center;
 }
 
-
-.vantagens {
+.vantagens, .dificuldade {
     max-width: 464px;
     border-radius: 20px;
     padding: 20px;
@@ -139,40 +138,25 @@ main {
     text-align: left;
 }
 
-.vantagens img {
+.vantagens img, .dificuldade img {
     display: block;
     margin: 20px auto;
     width: 100%;
-    max-width: 400px;
     height: auto;
-}
-
-.dificuldade {
-    max-width: 464px;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: left;
+    max-width: 400px;
 }
 
 .dificuldade img {
-    display: block;
-    margin: 20px auto;
-    width: 100%;
     max-width: 350px;
-    height: auto;
 }
 
-/* Seções de texto */
-.dificuldade h2,
-.jogo-memoria h2,
-.vantagens h2 {
+.jogo-memoria h2, .vantagens h2, .dificuldade h2 {
     font-size: 2.0rem;
     margin-bottom: 10px;
 }
 
 .vantagens h2, .dificuldade h2 {
-    color: #FF8225 ;
+    color: #FF8225;
 }
 
 .jogo-memoria h2 {
@@ -185,75 +169,53 @@ main {
     font-size: 1.5rem;
 }
 
-.dificuldade ul,
-.vantagens ul {
+.dificuldade ul, .vantagens ul {
     list-style-type: none;
     padding: 0;
 }
 
-.dificuldade ul li,
-.vantagens ul li {
+.dificuldade ul li, .vantagens ul li {
     margin-bottom: 10px;
     font-size: 1.3rem;
 }
 
-.vantagens .memoria {
-    color: #87a2ff;
-}
-.vantagens .cognitivo {
-    color: #ffd687;
-}
-.vantagens .acessibilidade {
-    color: #e04040;
-}
-.vantagens .diversao {
-    color: #94d25d;
-}
-.vantagens .competicao {
-    color: #9b59b6;
-}
+.vantagens .memoria { color: #87a2ff; }
+.vantagens .cognitivo { color: #ffd687; }
+.vantagens .acessibilidade { color: #e04040; }
+.vantagens .diversao { color: #94d25d; }
+.vantagens .competicao { color: #9b59b6; }
 
-.dificuldade .facil {
-    color: #3ab54a;
-}
-.dificuldade .medio {
-    color: #f58220;
-}
-.dificuldade .dificil {
-    color: #e94e77;
-}
+.dificuldade .facil { color: #3ab54a; }
+.dificuldade .medio { color: #f58220; }
+.dificuldade .dificil { color: #e94e77; }
 
 /* Responsividade da Seção Principal */
 @media (max-width: 1024px) {
-    .dificuldade,
-    .jogo-memoria,
-    .vantagens {
+    .dificuldade, .jogo-memoria, .vantagens {
         width: 45%;
     }
 }
 
 @media (max-width: 768px) {
-    .dificuldade,
-    .jogo-memoria,
-    .vantagens {
+    .dificuldade, .jogo-memoria, .vantagens {
         width: 80%;
     }
 }
 
 @media (max-width: 480px) {
-    .dificuldade,
-    .jogo-memoria,
-    .vantagens {
+    .dificuldade, .jogo-memoria, .vantagens {
         width: 100%;
     }
 }
 
+/* -------------------------------------------- */
+/* Footer */
 footer {
     background-color: #f58220;
     padding: 20px 0;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start; /* Garante que os h2 fiquem alinhados no topo */
+    align-items: flex-start;
     text-align: center;
     width: 100%;
     bottom: 0;
@@ -262,47 +224,28 @@ footer {
 footer nav {
     width: 33%;
     flex-direction: column;
-    justify-content: flex-start; /* Garante o alinhamento no topo das divs */
     align-items: center;
     text-align: center;
 }
 
 footer h2 {
-    margin-top: 0; /* Remove qualquer margem superior extra */
-    font-size: 1.2rem; /* Ajusta o tamanho, se necessário */
+    font-size: 1.2rem;
+    margin-top: 0;
 }
-
 
 footer p {
     font-size: 1rem;
 }
 
-.local-icon {
+.local-icon, .fone-icon, .rede-social {
     width: 20px;
     margin-bottom: 5px;
 }
 
-
-.fone-icon {
-    width: 20px;
-    margin-bottom: 5px;
-}
-
-.rede-social {
-    width: 30px;
-    margin-bottom: 5px;
-}
-
-.rede-social-instagram {
+.rede-social-instagram, .rede-social-facebook {
     width: 50px;
     margin-bottom: 5px;
 }
-
-.rede-social-facebook {
-    width: 50px;
-    margin-bottom: 5px;
-}
-
 
 /* Responsividade do Rodapé */
 @media (max-width: 768px) {
@@ -318,112 +261,61 @@ footer p {
     }
 }
 
-/* Aplica o efeito de sublinhado a todos os links na navegação */
+/* -------------------------------------------- */
+/* Efeitos de Navegação */
 nav a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    color: black; /* Cor do texto */
+    text-decoration: none;
+    color: black;
     position: relative;
     padding-bottom: 5px;
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para o efeito */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Efeito de sublinhado animado para todos os links */
-nav a::after {
+nav a::after, footer nav a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px; /* Espessura do sublinhado */
-    left: 0%;
+    height: 3px;
+    left: 0;
     bottom: 0;
     background-color: black;
     transition: width 0.3s ease;
 }
 
-/* Ajusta os links dentro do rodapé para evitar que o sublinhado se estenda */
-footer nav a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    color: black; /* Cor do texto */
-    position: relative;
-    display: inline-block; /* Garante que o link seja apenas do tamanho do texto */
-    padding-bottom: 5px;
-    transition: color 0.3s ease; /* Transição suave para o efeito */
-}
-
-/* Efeito de sublinhado animado para todos os links */
-footer nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px; /* Espessura do sublinhado */
-    left: 0;
-    bottom: -2px; /* Ajusta a posição do sublinhado */
-    background-color: black;
-    transition: width 0.3s ease; /* Transição suave para o sublinhado */
-}
-
-footer nav a:hover::after {
-    width: 100%; /* Sublinha apenas o tamanho do texto */
-}
-
-/* Corrige o alinhamento das imagens nos links */
-footer nav a img {
-    vertical-align: middle; /* Garante que a imagem fique alinhada ao texto */
-    margin-right: 5px; /* Espaçamento entre a imagem e o texto */
-}
-
-/* Quando o mouse passar sobre o link, o sublinhado aparece */
-nav a:hover::after {
+nav a:hover::after, footer nav a:hover::after {
     width: 100%;
 }
 
+footer nav a {
+    display: inline-block;
+}
+
+/* Botão "Jogar" */
 .botao-jogar {
     display: inline-block;
-    background-color: #0C1844; /* Fundo preto */
-    color: white; /* Texto branco */
-    padding: 15px 30px; /* Espaçamento interno do botão */
+    background-color: #0C1844;
+    color: white;
+    padding: 15px 30px;
     text-align: center;
-    border-radius: 8px; /* Bordas arredondadas */
-    font-size: 2.0rem; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
+    border-radius: 8px;
+    font-size: 2.0rem;
+    font-weight: bold;
     margin-top: 20px;
-    text-decoration: none; /* Remove o sublinhado do link */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para hover */
-    margin-top: auto; /* Garante que o botão fique no final */
+    text-decoration: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
     width: 300px;
 }
 
 .botao-jogar:hover {
-    background-color: #333333; /* Muda o fundo para um cinza mais escuro ao passar o mouse */
-    transform: translateY(-2px); /* Efeito de "levantar" o botão ao passar o mouse */
+    background-color: #333333;
+    transform: translateY(-2px);
 }
 
-/* Remove qualquer efeito da logo */
-nav .logo a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    pointer-events: none; /* Desativa qualquer comportamento de hover ou clique */
-}
-
-/* Remove o efeito ::after (sublinhado) especificamente da logo */
-nav .logo a::after {
-    content: none; /* Remove qualquer sublinhado ou efeito adicional */
-}
-
-/* Remove qualquer efeito da logo */
-header nav.logo a, 
-header nav.logo a::after, 
-header nav .logo a::after {
-    text-decoration: none !important; /* Remove o sublinhado e qualquer efeito residual */
+/* Remove efeitos da logo */
+header .logo a, header .logo a::after {
+    text-decoration: none !important;
     content: none !important;
-    pointer-events: auto;
-    transition: none !important;
-}
-/* Remove qualquer efeito da logo */
-header nav.logo a, 
-header nav.logo a::after, 
-header nav .logo a::after {
-    text-decoration: none !important; /* Remove o sublinhado e qualquer efeito residual */
-    content: none !important;
-    pointer-events: auto;
     transition: none !important;
 }
