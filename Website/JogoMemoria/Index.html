@@ -33,7 +33,26 @@
 
         <!-- Main -->
         <main>
-            
+            <div class="container">
+                <h1>JOGO DA MEMÓRIA</h1>
+                <p>Selecione o nível de dificuldade:</p>
+                <div class="difficulty-buttons">
+                    <button onclick="window.location.href='facil.html'">Fácil</button>
+                    <button onclick="window.location.href='medio.html'">Médio</button>
+                    <button onclick="window.location.href='dificil.html'">Difícil</button>
+                </div>
+    
+                <!-- Tabuleiro do Jogo -->
+                <div id="game-board" class="game-board"></div>
+    
+                <!-- Modal de vitória -->
+                <div id="win-message" class="modal hidden">
+                    <div class="modal-content">
+                        <h2>VOCÊ VENCEU!!!</h2>
+                        <button onclick="resetGame()">Jogar Novamente</button>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- Rodapé -->

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Fácil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="facilStyle.css"> <!-- Link para o arquivo CSS do modo fácil -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Jogo da Memória - Fácil</h1>
+        <div id="game-board" class="game-board"></div>
+
+        <!-- Modal de vitória -->
+        <div id="win-message" class="modal hidden">
+            <div class="modal-content">
+                <h2>VOCÊ VENCEU!!!</h2>
+                <button onclick="resetGame()">Jogar Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cardImages = ['🐶', '🐱']; // Emojis como imagens para as cartas
+
+        let flippedCards = [];
+        let matchedPairs = 0;
+        const totalPairs = 2; // Modo fácil com 2 pares de cartas
+
+        function startGame() {
+            const gameBoard = document.getElementById('game-board');
+            gameBoard.innerHTML = ''; // Limpa o tabuleiro
+            const cards = generateCards();
+            cards.forEach(card => gameBoard.appendChild(card));
+        }
+
+        function generateCards() {
+            const cardIndices = [0, 1];
+            const cardPairs = cardIndices.concat(cardIndices);
+            cardPairs.sort(() => Math.random() - 0.5);
+
+            return cardPairs.map(index => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="front"></div>
+                    <div class="back">${cardImages[index]}</div>
+                `;
+                card.addEventListener('click', () => flipCard(card, index));
+                return card;
+            });
+        }
+
+        function flipCard(card, index) {
+            if (flippedCards.length === 2 || card.classList.contains('flipped')) return;
+            
+            card.classList.add('flipped');
+            flippedCards.push({ card, index });
+
+            if (flippedCards.length === 2) {
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [first, second] = flippedCards;
+
+            if (first.index === second.index) {
+                matchedPairs++;
+                if (matchedPairs === totalPairs) {
+                    setTimeout(showWinMessage, 500);
+                }
+            } else {
+                setTimeout(() => {
+                    first.card.classList.remove('flipped');
+                    second.card.classList.remove('flipped');
+                }, 1000);
+            }
+
+            flippedCards = [];
+        }
+
+        function showWinMessage() {
+            document.getElementById('win-message').classList.remove('hidden');
+        }
+
+        function resetGame() {
+            document.getElementById('win-message').classList.add('hidden');
+            matchedPairs = 0;
+            startGame();
+        }
+
+        startGame(); // Inicia o jogo ao carregar a página
+    </script>
+
+</body>
+</html>

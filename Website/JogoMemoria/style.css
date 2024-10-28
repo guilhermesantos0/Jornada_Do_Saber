@@ -99,8 +99,98 @@
         width: 60px;
     }
   }
-  
-  
+
+/* -------------------------------------------- */
+/* Main (Conteúdo Principal) */
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.difficulty-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.difficulty-buttons button:hover {
+  background-color: #357ABD;
+}
+
+.game-board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Cartão do Jogo */
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #4A90E2;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card .front, .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.card .front {
+  background-color: #4A90E2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+/* Modal de vitória */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
   /* -------------------------------------------- */
   /* Footer */
   footer {
