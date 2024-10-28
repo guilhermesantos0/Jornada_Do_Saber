@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Memória - Médio</title>
+    <link rel="icon" href="../images/logo-semeador.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="medioStyle.css"> <!-- Link para o arquivo CSS do modo médio -->
 </head>
 <body>
 
+<!-- Botão de Retorno -->
+<a href="index.html" class="return-button">
+    <img src="../images/return-icon.png" alt="Voltar">
+</a>
+
     <div class="container">
-        <h1>Jogo da Memória - Médio</h1>
+        <h1>Jogo da Memória</h1>
+        <h2>Nível Médio</h2>
         <div id="game-board" class="game-board"></div>
 
         <!-- Modal de vitória -->
         <div id="win-message" class="modal hidden">
             <div class="modal-content">
+                <img src="../images/win.png" alt="Imagem de Vitória" class="victory-image">
                 <h2>VOCÊ VENCEU!!!</h2>
                 <button onclick="resetGame()">Jogar Novamente</button>
             </div>
@@ -94,6 +102,15 @@
         // Inicia o jogo ao carregar a página
         startGame();
     </script>
+
+    <!-- Imagem da Garotinha com Balão de Fala -->
+    <div class="character-section">
+        <div class="baloon-container">
+            <img src="../images/thought_balloon.png" alt="Balão de fala" class="baloon-image">
+            <p class="child-speech">Será que você consegue achar?</p>
+        </div>
+        <img src="../images/child_1.png" alt="Garotinha" class="girl-image">
+    </div>
 
 </body>
 </html>
