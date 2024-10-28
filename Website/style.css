@@ -1,3 +1,4 @@
+
 /* Reset básico */
 * {
   margin: 0;
@@ -11,18 +12,21 @@ body {
   color: black;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  margin-top: 0%;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 /* -------------------------------------------- */
 /* Header */
 header {
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f58220;
-  padding: 10px 0;
   position: relative;
   min-height: 100px;
 }
@@ -103,24 +107,10 @@ main {
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 20px 0;
   gap: 300px;
   flex-wrap: wrap;
-}
-
-/* Estilos das caixas de jogos */
-.caixa-jogo {
-  background-color: #87A2FF;
-  border-radius: 20px;
-  padding: 20px 25px; /* Aumenta o padding para expandir a altura */
-  margin: 10px;
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0;
+  padding-top: 0;
 }
 
 
@@ -129,8 +119,8 @@ main {
   display: flex;
   justify-content: center;
   gap: 10px; /* Ajusta a distância entre as imagens */
-  margin-top: 20px; /* Aproxima as imagens das caixas de texto */
-  padding-bottom: 20px;
+  margin-top: 0%; /* Aproxima as imagens das caixas de texto */
+  padding-bottom: px;
   width: 100%;
 }
 
@@ -271,3 +261,47 @@ header .logo a, header .logo a::after {
   content: none !important;
   transition: none !important;
 }
+
+/* Estilos das caixas de jogos */
+
+/* Estilos do main para exibição em linha */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinha os itens no topo */
+  gap: 20px; /* Ajuste conforme necessário para o espaçamento entre as caixas */
+  padding: 20px;
+  flex-wrap: wrap; /* Permite que os elementos ocupem uma nova linha, se necessário */
+  width: 100%;
+}
+
+/* Estilos para app-download */
+.app-download {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Ajusta a distância entre as imagens */
+  margin-top: 10px;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.caixa-jogo {
+  background-color: #87A2FF;
+  border-radius: 20px;
+  padding: 80px 25px; /* Aumenta o padding superior e inferior */
+  margin: 10px; /* Mantém o espaço em volta da caixa */
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px; /* Define uma altura mínima para a caixa */
+}
+
+.caixa-jogo p {
+  margin-top: 20px; /* Adiciona espaço acima do texto */
+  margin-bottom: 20px;
+}
+
