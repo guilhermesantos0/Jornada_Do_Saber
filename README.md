@@ -4,7 +4,6 @@ Integrantes: <br>
 Felipe Mariotto Guerstenmajer 23.01011-8 <br>
 Vinicius Varella 23.01008-8 <br>
 Heitor Miranda 23.00562-9 <br>
-Vinicius Coser  23.01634-5 <br>
 Murilo Orsi 23.00993-4 <br>
 Guilherme Santos 23.00796-6 <br>
 <br>

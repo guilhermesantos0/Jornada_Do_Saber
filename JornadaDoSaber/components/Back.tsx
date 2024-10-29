@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   back: {
     padding: 10,
     borderRadius: 5,
-    top: 50,
-    left: 50,
+    top: 35,
+    left: 10,
     zIndex: 10,
     position: 'absolute',
 },

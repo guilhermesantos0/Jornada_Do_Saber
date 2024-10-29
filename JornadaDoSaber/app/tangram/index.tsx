@@ -11,56 +11,51 @@ const screenHeight = Dimensions.get('window').height;
 const JogoTangram = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Back url="/" />
+      <Back 
+        url="/" 
+      />
       <Logo />
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.title}>JOGO DE TANGRAM</Text>
+
+      <View style={styles.imageContainer}>
+          <Image style={styles.subtitleImage} 
+              source={require('@/assets/images/tangram/tangram_pieces.png')}
+          />
+        </View>
+        
+        <Text style={styles.title}>TANGRAM</Text>
+
         <View style={styles.subtitleContainer}>
-          <Text style={styles.subtitle}>O jogo de Tangram oferece três modos de dificuldade: Fácil, Médio e Difícil</Text>
-          <Image style={styles.subtitleImage} source={require('@/assets/images/tangram/tangram_pieces.png')} />
-        </View>
-
-        <View style={styles.buttonContainer}>
-          <Link href={{ pathname: "/tangram/jogar", params: { difficulty: 1 }}} asChild>
-            <TouchableOpacity style={styles.button}>
-              <View style={styles.buttonImageContainer}>
-                <Image style={styles.buttonImage} source={require('@/assets/images/tangram/tangram_easy.png')} />
-              </View>
-              <Text style={styles.buttonText}>FÁCIL</Text>
-            </TouchableOpacity>
-          </Link>
-
-          <Link href={{ pathname: "/tangram/jogar", params: { difficulty: 2 }}} asChild>
-            <TouchableOpacity style={styles.button}>
-              <View style={styles.buttonImageContainer}>
-                <Image style={styles.buttonImage} source={require('@/assets/images/tangram/tangram_mid.png')} />
-              </View>
-              <Text style={styles.buttonText}>MÉDIO</Text>
-            </TouchableOpacity>
-          </Link>
-
-          <Link href={{ pathname: "/tangram/jogar", params: { difficulty: 3 }}} asChild>
-            <TouchableOpacity style={styles.button}>
-              <View style={styles.buttonImageContainer}>
-                <Image style={styles.buttonImage} source={require('@/assets/images/tangram/tangram_hard.png')} />
-              </View>
-              <Text style={styles.buttonText}>DIFÍCIL</Text>
-            </TouchableOpacity>
-          </Link>
-        </View>
-
-        <View style={styles.rulesContainer}>
-          <View style={styles.rulesTitleContainer}>
-            <Image source={require("@/assets/images/rules.png")} />
-            <Text style={styles.rulesTitle}>Regras</Text>
-          </View>
-          <Text style={styles.rulesText}>
-            O Tangram é um quebra-cabeça geométrico que consiste em 7 peças. O objetivo é formar figuras específicas utilizando todas as peças sem sobreposição.
+          <Text style={styles.subtitle}>
+          O jogo do TANGRAM 
           </Text>
         </View>
-
       </ScrollView>
+
+      <View style={styles.buttonWrapper}>
+        <Link href={{ pathname: "/tangram/jogar", }} asChild>
+          <TouchableOpacity style={styles.button}>
+            <View style={styles.buttonImageContainer}>
+              <Image
+                style={styles.buttonImage}
+                source={require('@/assets/images/tangram/tangram_easy.png')}
+              />
+            </View>
+            <Text style={styles.buttonText}>Jogar</Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
+
+      <View style={styles.rulesContainer}>
+        <View style={styles.rulesTitleContainer}>
+          <Image source={require("@/assets/images/rules.png")} />
+          <Text style={styles.rulesTitle}>Regras</Text>
+        </View>
+        <Text style={styles.rulesText}>
+          O Tangram é um quebra-cabeça geométrico que consiste em 7 peças. O objetivo é formar figuras específicas utilizando todas as peças sem sobreposição.
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };
@@ -74,38 +69,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 20,
   },
+  imageContainer: {
+    position: 'absolute',
+    height: 60,
+    width: 60,
+    marginTop: 150,
+    paddingHorizontal: 95,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: '#FF6D00',
-    marginTop: 100,
+    marginTop: 190,
   },
   subtitleContainer: {
     height: 100,
-    marginTop: 10,
+    marginTop: 20,
     paddingHorizontal: 20,
-    position: 'relative'
+    position: 'relative',
   },
   subtitle: {
     fontSize: 16,
     margin: 10,
     color: '#666',
     textAlign: 'left',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   subtitleImage: {
     position: 'absolute',
     right: 25,
     bottom: 20,
-    height: 40,
-    width: 40
+    height: 150,
+    width: 150,
   },
-  buttonContainer: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 15,
-    marginTop: 0,
+  buttonWrapper: {
+    position: 'absolute',
+    top: '50%', 
+    left: '50%', 
+    transform: [{ translateX: -screenWidth * 0.4 }, { translateY: -screenHeight * 0.075 }],
   },
   button: {
     backgroundColor: "#4A90E2",
@@ -113,6 +116,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     alignItems: "center",
+    alignContent: "space-around",
     justifyContent: "flex-start",
     flexDirection: "row",
     maxHeight: screenHeight * 0.15,
@@ -137,14 +141,17 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   rulesContainer: {
-    marginTop: 30,
     paddingHorizontal: 20,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    position: 'absolute',
+    bottom: 20, 
+    left: 0,
+    right: 0,
   },
   rulesTitle: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#FF6D00'
+    color: '#FF6D00',
   },
   rulesText: {
     fontSize: 16,
@@ -154,8 +161,8 @@ const styles = StyleSheet.create({
   },
   rulesTitleContainer: {
     flexDirection: 'row',
-    marginLeft: 20
-  }
+    marginLeft: 20,
+  },
 });
 
 export default JogoTangram;
