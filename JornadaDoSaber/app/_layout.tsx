@@ -29,11 +29,15 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="tutorial/2" options={{ headerShown: false }} />
+        <Stack.Screen name="tutorial/3" options={{ headerShown: false }} />
+        <Stack.Screen name="tutorial/4" options={{ headerShown: false }} />
+        
+        <Stack.Screen name="home" options={{ headerShown: false }} />
         <Stack.Screen name="memoria/index" options={{ headerShown: false }} />
         <Stack.Screen name="memoria/jogar/index" options={{ headerShown: false }} />
         <Stack.Screen name="tangram/index" options={{ headerShown: false }} />
         <Stack.Screen name="tangram/jogar/index" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>

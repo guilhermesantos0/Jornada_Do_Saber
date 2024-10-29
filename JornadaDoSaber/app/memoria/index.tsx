@@ -12,7 +12,7 @@ const JogoDaMemoria = () => {
   return (
     <SafeAreaView style={styles.container}>
 
-      <Back url="/" />
+      <Back url="home" />
       <Logo />
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
