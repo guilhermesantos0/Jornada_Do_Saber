@@ -117,19 +117,6 @@ main {
 }
 
 /* Seções comuns */
-.jogo-memoria {
-    background-color: #87A2FF;
-    text-align: justify;
-    max-width: 464px;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 .vantagens, .dificuldade {
     max-width: 464px;
     border-radius: 20px;
@@ -150,31 +137,18 @@ main {
     max-width: 350px;
 }
 
-.jogo-memoria h2, .vantagens h2, .dificuldade h2 {
+.vantagens h2, .dificuldade h2 {
     font-size: 2.0rem;
     margin-bottom: 10px;
-}
-
-.vantagens h2, .dificuldade h2 {
     color: #FF8225;
 }
 
-.jogo-memoria h2 {
-    text-align: center;
-    color: #1d2d67;
-}
-
-.jogo-memoria p {
-    color: white;
-    font-size: 1.5rem;
-}
-
-.dificuldade ul, .vantagens ul {
+.vantagens ul, .dificuldade ul {
     list-style-type: none;
     padding: 0;
 }
 
-.dificuldade ul li, .vantagens ul li {
+.vantagens ul li, .dificuldade ul li {
     margin-bottom: 10px;
     font-size: 1.3rem;
 }
@@ -191,19 +165,19 @@ main {
 
 /* Responsividade da Seção Principal */
 @media (max-width: 1024px) {
-    .dificuldade, .jogo-memoria, .vantagens {
+    .dificuldade, .vantagens {
         width: 45%;
     }
 }
 
 @media (max-width: 768px) {
-    .dificuldade, .jogo-memoria, .vantagens {
+    .dificuldade, .vantagens {
         width: 80%;
     }
 }
 
 @media (max-width: 480px) {
-    .dificuldade, .jogo-memoria, .vantagens {
+    .dificuldade, .vantagens {
         width: 100%;
     }
 }
