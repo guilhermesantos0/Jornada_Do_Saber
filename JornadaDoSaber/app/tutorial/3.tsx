@@ -10,26 +10,25 @@ const App = () => {
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Image
-          source={require('../assets/images/tutorial/1.png')}
+          source={require('../../assets/images/tutorial/3.png')}
           style={styles.image}
         />
       </View>
 
       <View style={styles.bottomSection}>
         <View style={styles.pageIndicator}>
+          <View style={styles.indicatorBar} />
+          <View style={styles.indicatorBar} />
           <View style={[styles.indicatorBar, styles.activeIndicator]} />
-          <View style={styles.indicatorBar} />
-          <View style={styles.indicatorBar} />
           <View style={styles.indicatorBar} />
         </View>
 
-        <Text style={styles.title}>Jornada do Saber</Text>
+        <Text style={styles.title}>Jogo da Memória</Text>
         <Text style={styles.description}>
-          O aplicativo YE Gestão de Saúde irá te auxiliar com a autogestão da sua saúde,
-          mantendo controle de seus medicamentos, aferições, consultas e resultados de exames.
+        Área do aplicativo para ter controle dos medicamentos jaá cadastrados e dos já encerrados, podendo reativá-los. Para cadastrar medicamento é necessário inserir seu nome, dosagem prescrita, período e intervalos de uso.
         </Text>
 
-        <Link href={'tutorial/2'} asChild>
+        <Link href={'tutorial/4'} asChild>
           <TouchableOpacity style={styles.skipButton}>
             <FontAwesome name="arrow-right" size={24} color="#fff" />
           </TouchableOpacity>
