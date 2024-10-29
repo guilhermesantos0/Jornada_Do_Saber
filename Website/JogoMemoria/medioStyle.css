@@ -1,0 +1,176 @@
+/* CSS para o modo médio */
+
+body {
+    font-family: 'Baloo Thambi 2', cursive;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.container h1 {
+    color:#FF8225 ;
+}
+
+.container h2 {
+    color:#87A2FF ;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #4A90E2;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card .front, .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.card .back {
+    transform: rotateY(180deg);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de retorno */
+.return-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.return-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.return-button:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Garotinha e Balão de Fala */
+.character-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Contêiner para balão e texto */
+.baloon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.baloon-image {
+    width: 110px; /* Tamanho do balão */
+    height: auto;
+}
+
+.child-speech {
+    position: absolute;
+    top: 5%; /* Posiciona o texto dentro do balão */
+    font-size: 0.6rem; /* Tamanho menor para caber no balão */
+    color: black;
+    text-align: center;
+    width: 60px; /* Ajusta a largura para caber no balão */
+    line-height: 1.2;
+}
+
+.girl-image {
+    width: 80px; /* Tamanho da garotinha */
+    height: auto;
+    margin-top: -10px; /* Ajusta o espaço entre o balão e a garotinha */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Coloca a modal no topo de todos os elementos */
+}
+
+/* Ajustes para a imagem de vitória na modal */
+.victory-image {
+    width: 80px; /* Tamanho da imagem */
+    height: auto;
+    margin-bottom: 10px; /* Espaçamento entre a imagem e o texto */
+}

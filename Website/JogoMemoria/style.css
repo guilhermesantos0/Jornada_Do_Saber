@@ -1,0 +1,216 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos do Corpo */
+body {
+  font-family: 'Baloo Thambi 2', cursive;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-weight: bold;
+  margin: 0;
+  padding: 0%;
+}
+
+/* Container Principal */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #FF8225;
+  margin-bottom: 10px;
+}
+
+/* Botões de Dificuldade */
+.difficulty-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.difficulty-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #87A2FF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  width: 250px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.difficulty-buttons button img {
+  width: 30px;
+  height: 30px;
+}
+
+.difficulty-buttons button:hover {
+  background-color: #6E8DD9;
+}
+
+.game-rules h2 {
+  font-size: 1.5rem;
+  color: #FF8225; /* Cor rosa */
+  margin-bottom: 10px;
+}
+
+/* -------------------------------------------- */
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f58220;
+  position: relative;
+  min-height: 100px;
+}
+
+header .logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-43%);
+}
+
+header .logo img {
+  width: 80px;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 350px;
+}
+
+.jogos-link, header nav a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.jogos-link:hover, header nav a:hover {
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.jogos-link::after, header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+.jogos-link:hover::after, header nav a:hover::after {
+  width: 100%;
+}
+
+/* -------------------------------------------- */
+/* Footer */
+footer {
+  background-color: #f58220;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer nav {
+  width: 33%;
+}
+
+footer h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+footer nav a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer nav a:hover {
+  color: #333;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+footer nav a:hover::after {
+  width: 100%;
+}
+
+.local-icon, .fone-icon, .rede-social {
+  width: 20px;
+  margin-bottom: 5px;
+}
+
+.rede-social-instagram, .rede-social-facebook {
+  width: 50px;
+  margin-bottom: 5px;
+}
+
+/* Responsividade do Rodapé */
+@media (max-width: 768px) {
+  footer {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  footer div {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+}

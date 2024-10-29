@@ -1,0 +1,321 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos do Corpo */
+body {
+    font-family: 'Baloo Thambi 2', cursive;
+    color: black;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+/* -------------------------------------------- */
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f58220;
+    padding: 10px 0;
+    position: relative;
+    min-height: 100px; /* Define uma altura mínima para o header */
+}
+
+header .logo {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-43%);
+}
+
+header .logo img {
+    width: 80px;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 350px;
+}
+
+.jogos-link, header nav a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.jogos-abas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem-jogos {
+    width: 40px;
+    margin-bottom: 5px;
+}
+
+/* Responsividade para a Header */
+@media (max-width: 1024px) {
+    header nav {
+        gap: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav {
+        gap: 10px;
+    }
+
+    header .logo img {
+        width: 60px;
+    }
+}
+
+/* -------------------------------------------- */
+/* Main */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.imagem-vantagens {
+    display: block;
+    margin: 20px auto 15px;
+    width: 50px;
+}
+
+/* Seções comuns */
+.jogo-memoria {
+    background-color: #87A2FF;
+    text-align: justify;
+    max-width: 464px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.vantagens, .dificuldade {
+    max-width: 464px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.vantagens img, .dificuldade img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+.dificuldade img {
+    max-width: 350px;
+}
+
+.jogo-memoria h2, .vantagens h2, .dificuldade h2 {
+    font-size: 2.0rem;
+    margin-bottom: 10px;
+}
+
+.vantagens h2, .dificuldade h2 {
+    color: #FF8225;
+}
+
+.jogo-memoria h2 {
+    text-align: center;
+    color: #1d2d67;
+}
+
+.jogo-memoria p {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.dificuldade ul, .vantagens ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dificuldade ul li, .vantagens ul li {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.vantagens .memoria { color: #87a2ff; }
+.vantagens .cognitivo { color: #ffd687; }
+.vantagens .acessibilidade { color: #e04040; }
+.vantagens .diversao { color: #94d25d; }
+.vantagens .competicao { color: #9b59b6; }
+
+.dificuldade .facil { color: #3ab54a; }
+.dificuldade .medio { color: #f58220; }
+.dificuldade .dificil { color: #e94e77; }
+
+/* Responsividade da Seção Principal */
+@media (max-width: 1024px) {
+    .dificuldade, .jogo-memoria, .vantagens {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dificuldade, .jogo-memoria, .vantagens {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dificuldade, .jogo-memoria, .vantagens {
+        width: 100%;
+    }
+}
+
+/* -------------------------------------------- */
+/* Footer */
+footer {
+    background-color: #f58220;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+
+footer nav {
+    width: 33%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+.local-icon, .fone-icon, .rede-social {
+    width: 20px;
+    margin-bottom: 5px;
+}
+
+.rede-social-instagram, .rede-social-facebook {
+    width: 50px;
+    margin-bottom: 5px;
+}
+
+/* Responsividade do Rodapé */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer div {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* -------------------------------------------- */
+/* Efeitos de Navegação */
+nav a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a::after, footer nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after, footer nav a:hover::after {
+    width: 100%;
+}
+
+footer nav a {
+    display: inline-block;
+}
+
+/* Botão "Jogar" */
+.botao-jogar {
+    display: inline-block;
+    background-color: #0C1844;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-decoration: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
+    width: 300px;
+}
+
+.botao-jogar:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+/* Remove efeitos da logo */
+header .logo a, header .logo a::after {
+    text-decoration: none !important;
+    content: none !important;
+    transition: none !important;
+}
