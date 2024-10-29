@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* -------------------------------------------- */
 /* Estilos do Corpo */
 body {
   font-family: 'Baloo Thambi 2', cursive;
@@ -14,20 +15,23 @@ body {
   min-height: 100vh;
   font-weight: bold;
   margin: 0;
-  padding: 0%;
+  padding: 0;
 }
 
-/* Container Principal */
+/* -------------------------------------------- */
+/* Estrutura Principal */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
+  padding: 20px;
 }
 
 .container {
   text-align: center;
   padding: 20px;
+  max-width: 100%;
 }
 
 h1 {
@@ -36,6 +40,7 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* -------------------------------------------- */
 /* Botões de Dificuldade */
 .difficulty-buttons {
   display: flex;
@@ -47,7 +52,7 @@ h1 {
 .difficulty-buttons button {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 15px 20px;
   font-size: 1.2rem;
   font-weight: bold;
@@ -56,7 +61,8 @@ h1 {
   border: none;
   border-radius: 10px;
   transition: background-color 0.3s;
-  width: 250px;
+  width: 100%;
+  max-width: 300px;
   gap: 10px;
   cursor: pointer;
 }
@@ -70,9 +76,10 @@ h1 {
   background-color: #6E8DD9;
 }
 
+/* Título de Regras */
 .game-rules h2 {
   font-size: 1.5rem;
-  color: #FF8225; /* Cor rosa */
+  color: #FF8225;
   margin-bottom: 10px;
 }
 
@@ -85,6 +92,7 @@ header {
   background-color: #f58220;
   position: relative;
   min-height: 100px;
+  padding: 10px;
 }
 
 header .logo {
@@ -102,7 +110,7 @@ header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 350px;
+  gap: 250px;
 }
 
 .jogos-link, header nav a {
@@ -115,7 +123,7 @@ header nav {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.jogos-link:hover, header nav a:hover {
+.jogos-link:hover {
   color: #333;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -171,11 +179,6 @@ footer nav a {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-footer nav a:hover {
-  color: #333;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 footer nav a::after {
   content: '';
   position: absolute;
@@ -201,16 +204,73 @@ footer nav a:hover::after {
   margin-bottom: 5px;
 }
 
+/* -------------------------------------------- */
+/* Responsividade */
+
 /* Responsividade do Rodapé */
 @media (max-width: 768px) {
   footer {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  footer div {
-      width: 100%;
-      margin-bottom: 10px;
+  footer nav {
+    width: 100%;
+    margin-bottom: 10px;
   }
+}
+
+/* Responsividade para Dispositivos Médios */
+@media (max-width: 1024px) {
+  header nav {
+    gap: 30px;
+  }
+
+  .difficulty-buttons button {
+    max-width: 90%;
+  }
+}
+
+/* Responsividade para Dispositivos Pequenos */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  header .logo {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .difficulty-buttons button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  footer nav {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
+
+/* Remove efeitos da logo */
+header .logo a, header .logo a::after {
+  text-decoration: none !important;
+  content: none !important;
+  transition: none !important;
 }

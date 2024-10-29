@@ -175,3 +175,42 @@ body {
     margin-bottom: 10px; /* Espaçamento entre a imagem e o texto */
 }
 
+/* Estilos para o ícone de saída no modal */
+.modal-content {
+    position: relative;
+}
+
+.exit-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px; /* Ajuste o tamanho conforme necessário */
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.exit-icon:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Estilo para o botão "Jogar Novamente" */
+.modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.modal button:hover {
+    background-color: #357ABD; /* Cor um pouco mais escura */
+    transform: scale(1.05); /* Leve aumento de tamanho */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+}
+

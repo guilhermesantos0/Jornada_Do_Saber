@@ -11,18 +11,23 @@
 <body>
 
     <!-- Botão de Retorno -->
-<a href="index.html" class="return-button">
-    <img src="../images/return-icon.png" alt="Voltar">
-</a>
+    <a href="index.html" class="return-button">
+        <img src="../images/return-icon.png" alt="Voltar">
+    </a>
 
     <div class="container">
         <h1>Jogo da Memória</h1>
         <h2>Nível Fácil</h2>
-        <div id="game-board" class="game-board"></div>
+
+        <!-- Tabuleiro do Jogo -->
+        <div id="game-board" class="game-board">
+            <!-- Cards do jogo gerados dinamicamente -->
+        </div>
 
         <!-- Modal de vitória -->
         <div id="win-message" class="modal hidden">
             <div class="modal-content">
+                <img src="../images/exit-icon.png" alt="Fechar" class="exit-icon" onclick="window.location.href='index.html'">
                 <img src="../images/win.png" alt="Imagem de Vitória" class="victory-image">
                 <h2>VOCÊ VENCEU!!!</h2>
                 <button onclick="resetGame()">Jogar Novamente</button>
@@ -30,16 +35,16 @@
         </div>
     </div>
 
+    <!-- Script do Jogo -->
     <script>
-        const cardImages = ['🐶', '🐱']; // Emojis como imagens para as cartas
-
+        const cardImages = ['🐶', '🐱'];
         let flippedCards = [];
         let matchedPairs = 0;
-        const totalPairs = 2; // Modo fácil com 2 pares de cartas
+        const totalPairs = 2;
 
         function startGame() {
             const gameBoard = document.getElementById('game-board');
-            gameBoard.innerHTML = ''; // Limpa o tabuleiro
+            gameBoard.innerHTML = '';
             const cards = generateCards();
             cards.forEach(card => gameBoard.appendChild(card));
         }
@@ -53,7 +58,9 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
-                    <div class="front"></div>
+                    <div class="front">
+                        <img src="../images/card_back.png" alt="Imagem do card" class="card-image">
+                    </div>
                     <div class="back">${cardImages[index]}</div>
                 `;
                 card.addEventListener('click', () => flipCard(card, index));
@@ -63,7 +70,6 @@
 
         function flipCard(card, index) {
             if (flippedCards.length === 2 || card.classList.contains('flipped')) return;
-            
             card.classList.add('flipped');
             flippedCards.push({ card, index });
 
@@ -74,7 +80,6 @@
 
         function checkMatch() {
             const [first, second] = flippedCards;
-
             if (first.index === second.index) {
                 matchedPairs++;
                 if (matchedPairs === totalPairs) {
@@ -86,7 +91,6 @@
                     second.card.classList.remove('flipped');
                 }, 1000);
             }
-
             flippedCards = [];
         }
 
@@ -100,7 +104,7 @@
             startGame();
         }
 
-        startGame(); // Inicia o jogo ao carregar a página
+        startGame();
     </script>
 
     <!-- Imagem da Garotinha com Balão de Fala -->
@@ -111,8 +115,6 @@
         </div>
         <img src="../images/child_1.png" alt="Garotinha" class="girl-image">
     </div>
-    
-</main>
 
 </body>
 </html>

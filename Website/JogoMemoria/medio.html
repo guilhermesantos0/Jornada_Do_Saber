@@ -23,6 +23,7 @@
         <!-- Modal de vitória -->
         <div id="win-message" class="modal hidden">
             <div class="modal-content">
+                <img src="../images/exit-icon.png" alt="Fechar" class="exit-icon" onclick="window.location.href='index.html'">
                 <img src="../images/win.png" alt="Imagem de Vitória" class="victory-image">
                 <h2>VOCÊ VENCEU!!!</h2>
                 <button onclick="resetGame()">Jogar Novamente</button>
@@ -52,7 +53,9 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
-                    <div class="front"></div>
+                    <div class="front">
+                        <img src="../images/card_back.png" alt="Imagem do card" class="card-image">
+                    </div>
                     <div class="back">${cardImages[index]}</div>
                 `;
                 card.addEventListener('click', () => flipCard(card, index));
