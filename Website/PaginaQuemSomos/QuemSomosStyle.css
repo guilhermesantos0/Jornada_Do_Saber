@@ -25,7 +25,7 @@ header {
     background-color: #f58220;
     padding: 10px 0;
     position: relative;
-    min-height: 100px; /* Define uma altura mínima para o header */
+    min-height: 100px;
 }
 
 header .logo {
@@ -52,17 +52,6 @@ header nav a {
     font-weight: bold;
     text-decoration: none;
     font-size: 1.5rem;
-}
-
-.jogos-abas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.imagem-jogos {
-    width: 40px;
-    margin-bottom: 5px;
 }
 
 /* Responsividade para a Header */
@@ -99,190 +88,159 @@ header nav a {
     }
 }
 
-/* Seção Principal */
+/* Conteúdo Principal */
 main {
-    flex: 1;
+    max-width: 1200px; /* Limita a largura máxima do main para centralização */
+    padding: 20px 40px; /* Espaçamento nas bordas */
+    margin: auto; /* Centraliza o conteúdo */
+}
+
+/* Estilos da seção 'Quem Somos' */
+.secao-quemsomos {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px; /* Adiciona espaçamento entre o texto e a imagem */
     flex-wrap: wrap;
 }
 
-.imagem-vantagens {
-    display: block;
-    margin: 20px auto 15px;
-    width: 50px;
-}
-
-/* Seções comuns */
-
-.jogo-memoria {
-    background-color: #87A2FF;
-    text-align: justify;
-    max-width: 464px;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Garante que o botão fique na parte inferior */
-    align-items: center; /* Centraliza o botão horizontalmente */
-}
-
-
-.vantagens {
-    max-width: 464px;
-    border-radius: 20px;
+.texto-quemsomos {
+    max-width: 550px;
     padding: 20px;
     margin-bottom: 20px;
     text-align: left;
 }
 
-.vantagens img {
-    display: block;
-    margin: 20px auto;
+.texto-quemsomos h2 {
+    color: #4a73f3;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.texto-quemsomos p {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.imagem-quemsomos {
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.imagem-quemsomos img {
     width: 100%;
     max-width: 400px;
     height: auto;
+    border-radius: 10px;
 }
 
-.dificuldade {
-    max-width: 464px;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.dificuldade img {
-    display: block;
-    margin: 20px auto;
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-}
-
-/* Seções de texto */
-.dificuldade h2,
-.jogo-memoria h2,
-.vantagens h2 {
-    font-size: 2.0rem;
-    margin-bottom: 10px;
-}
-
-.vantagens h2, .dificuldade h2 {
-    color: #FF8225 ;
-}
-
-.jogo-memoria h2 {
+/* Seção de Apoio */
+.secao-apoio {
     text-align: center;
-    color: #1d2d67;
+    margin: 20px 0;
 }
 
-.jogo-memoria p {
-    color: white;
-    font-size: 1.5rem;
-}
-
-.dificuldade ul,
-.vantagens ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.dificuldade ul li,
-.vantagens ul li {
+.secao-apoio h2 {
+    color: #4a73f3;
+    font-size: 1.8rem;
     margin-bottom: 10px;
-    font-size: 1.3rem;
 }
 
-.vantagens .memoria {
-    color: #87a2ff;
-}
-.vantagens .cognitivo {
-    color: #ffd687;
-}
-.vantagens .acessibilidade {
-    color: #e04040;
-}
-.vantagens .diversao {
-    color: #94d25d;
-}
-.vantagens .competicao {
-    color: #9b59b6;
+.secao-apoio h3 {
+    color: #4a73f3;
+    font-size: 1.5rem;
+    margin-top: 20px;
 }
 
-.dificuldade .facil {
-    color: #3ab54a;
-}
-.dificuldade .medio {
-    color: #f58220;
-}
-.dificuldade .dificil {
-    color: #e94e77;
+.secao-apoio p {
+    color: #333;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 20px;
 }
 
-/* Responsividade da Seção Principal */
-@media (max-width: 1024px) {
-    .dificuldade,
-    .jogo-memoria,
-    .vantagens {
-        width: 45%;
-    }
+.botao-doar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f33;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-    .dificuldade,
-    .jogo-memoria,
-    .vantagens {
-        width: 80%;
-    }
+/* Seção de Benefícios */
+.secao-beneficios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
 }
 
-@media (max-width: 480px) {
-    .dificuldade,
-    .jogo-memoria,
-    .vantagens {
-        width: 100%;
-    }
+.beneficio {
+    text-align: center;
+    width: 200px;
 }
 
+.beneficio img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.beneficio p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Seção de Voluntário */
+.secao-voluntario {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.secao-voluntario img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+/* Rodapé */
 footer {
     background-color: #f58220;
     padding: 20px 0;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start; /* Garante que os h2 fiquem alinhados no topo */
+    align-items: flex-start;
     text-align: center;
     width: 100%;
-    bottom: 0;
+    flex-wrap: wrap;
 }
 
 footer nav {
     width: 33%;
     flex-direction: column;
-    justify-content: flex-start; /* Garante o alinhamento no topo das divs */
     align-items: center;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 footer h2 {
-    margin-top: 0; /* Remove qualquer margem superior extra */
-    font-size: 1.2rem; /* Ajusta o tamanho, se necessário */
+    margin-top: 0;
+    font-size: 1.2rem;
 }
-
 
 footer p {
     font-size: 1rem;
 }
 
-.local-icon {
-    width: 20px;
-    margin-bottom: 5px;
-}
-
-
+.local-icon,
 .fone-icon {
     width: 20px;
     margin-bottom: 5px;
@@ -293,137 +251,95 @@ footer p {
     margin-bottom: 5px;
 }
 
-.rede-social-instagram {
-    width: 50px;
-    margin-bottom: 5px;
-}
-
+.rede-social-instagram,
 .rede-social-facebook {
     width: 50px;
     margin-bottom: 5px;
 }
 
-
-/* Responsividade do Rodapé */
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    footer div {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
-/* Aplica o efeito de sublinhado a todos os links na navegação */
-nav a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    color: black; /* Cor do texto */
+/* Links com efeito de sublinhado */
+nav a, footer nav a {
+    text-decoration: none;
+    color: black;
     position: relative;
     padding-bottom: 5px;
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para o efeito */
+    transition: color 0.3s ease;
 }
 
-/* Efeito de sublinhado animado para todos os links */
-nav a::after {
+nav a::after, footer nav a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px; /* Espessura do sublinhado */
-    left: 0%;
+    height: 3px;
+    left: 0;
     bottom: 0;
     background-color: black;
     transition: width 0.3s ease;
 }
 
-/* Ajusta os links dentro do rodapé para evitar que o sublinhado se estenda */
-footer nav a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    color: black; /* Cor do texto */
-    position: relative;
-    display: inline-block; /* Garante que o link seja apenas do tamanho do texto */
-    padding-bottom: 5px;
-    transition: color 0.3s ease; /* Transição suave para o efeito */
-}
-
-/* Efeito de sublinhado animado para todos os links */
-footer nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px; /* Espessura do sublinhado */
-    left: 0;
-    bottom: -2px; /* Ajusta a posição do sublinhado */
-    background-color: black;
-    transition: width 0.3s ease; /* Transição suave para o sublinhado */
-}
-
-footer nav a:hover::after {
-    width: 100%; /* Sublinha apenas o tamanho do texto */
-}
-
-/* Corrige o alinhamento das imagens nos links */
-footer nav a img {
-    vertical-align: middle; /* Garante que a imagem fique alinhada ao texto */
-    margin-right: 5px; /* Espaçamento entre a imagem e o texto */
-}
-
-/* Quando o mouse passar sobre o link, o sublinhado aparece */
-nav a:hover::after {
+nav a:hover::after, footer nav a:hover::after {
     width: 100%;
 }
 
-.botao-jogar {
-    display: inline-block;
-    background-color: #0C1844; /* Fundo preto */
-    color: white; /* Texto branco */
-    padding: 15px 30px; /* Espaçamento interno do botão */
-    text-align: center;
-    border-radius: 8px; /* Bordas arredondadas */
-    font-size: 2.0rem; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    margin-top: 20px;
-    text-decoration: none; /* Remove o sublinhado do link */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para hover */
-    margin-top: auto; /* Garante que o botão fique no final */
-    width: 300px;
+/* Responsividade */
+
+/* Ajuste para tablets (768px) */
+@media (max-width: 768px) {
+    header nav {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .secao-quemsomos {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto-quemsomos, .imagem-quemsomos {
+        max-width: 100%;
+    }
+
+    .texto-quemsomos {
+        padding: 10px;
+    }
+
+    .secao-beneficios {
+        gap: 10px;
+    }
+
+    footer nav {
+        width: 100%;
+    }
 }
 
-.botao-jogar:hover {
-    background-color: #333333; /* Muda o fundo para um cinza mais escuro ao passar o mouse */
-    transform: translateY(-2px); /* Efeito de "levantar" o botão ao passar o mouse */
-}
+/* Ajuste para dispositivos móveis (480px) */
+@media (max-width: 480px) {
+    header .logo img {
+        width: 60px;
+    }
 
-/* Remove qualquer efeito da logo */
-nav .logo a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    pointer-events: none; /* Desativa qualquer comportamento de hover ou clique */
-}
+    header nav {
+        gap: 10px;
+    }
 
-/* Remove o efeito ::after (sublinhado) especificamente da logo */
-nav .logo a::after {
-    content: none; /* Remove qualquer sublinhado ou efeito adicional */
-}
+    .texto-quemsomos h2 {
+        font-size: 1.6rem;
+    }
 
-/* Remove qualquer efeito da logo */
-header nav.logo a, 
-header nav.logo a::after, 
-header nav .logo a::after {
-    text-decoration: none !important; /* Remove o sublinhado e qualquer efeito residual */
-    content: none !important;
-    pointer-events: auto;
-    transition: none !important;
-}
-/* Remove qualquer efeito da logo */
-header nav.logo a, 
-header nav.logo a::after, 
-header nav .logo a::after {
-    text-decoration: none !important; /* Remove o sublinhado e qualquer efeito residual */
-    content: none !important;
-    pointer-events: auto;
-    transition: none !important;
+    .secao-apoio h2, .secao-apoio h3 {
+        font-size: 1.4rem;
+    }
+
+    .secao-apoio p, .texto-quemsomos p {
+        font-size: 1rem;
+    }
+
+    .botao-doar {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .beneficio p {
+        font-size: 0.9rem;
+    }
 }
