@@ -28,12 +28,12 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </Link>
 
-        <Link href="/tangram" asChild>
+        <Link href="/jogoDaVelha" asChild>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
               <Image style={styles.buttonImage} source={require('@/assets/images/home/tangram.png')} />
             </View>
-            <Text style={styles.buttonText}>TANGRAM</Text>
+            <Text style={styles.buttonText}>JOGO DA VELHA</Text>
           </TouchableOpacity>
         </Link>
 

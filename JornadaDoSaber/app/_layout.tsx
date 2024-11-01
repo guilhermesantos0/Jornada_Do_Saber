@@ -36,8 +36,8 @@ export default function RootLayout() {
         <Stack.Screen name="home" options={{ headerShown: false }} />
         <Stack.Screen name="memoria/index" options={{ headerShown: false }} />
         <Stack.Screen name="memoria/jogar/index" options={{ headerShown: false }} />
-        <Stack.Screen name="tangram/index" options={{ headerShown: false }} />
-        <Stack.Screen name="tangram/jogar/index" options={{ headerShown: false }} />
+        <Stack.Screen name="jogoDaVelha/index" options={{ headerShown: false }} />
+        <Stack.Screen name="jogoDaVelha/jogar/index" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
