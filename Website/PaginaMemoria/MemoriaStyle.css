@@ -23,7 +23,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f58220;
+    background-color: #f5aa20;
     padding: 10px 0;
     position: relative;
     min-height: 100px; /* Define uma altura mínima para o header */
@@ -185,7 +185,7 @@ main {
 /* -------------------------------------------- */
 /* Footer */
 footer {
-    background-color: #f58220;
+    background-color: #f5aa20;
     padding: 20px 0;
     display: flex;
     justify-content: space-evenly;
