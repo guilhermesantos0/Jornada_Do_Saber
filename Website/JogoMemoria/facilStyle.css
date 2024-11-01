@@ -17,11 +17,23 @@ body {
 }
 
 .container h1 {
-    color:#FF8225 ;
+    color: #FF8225;
 }
 
 .container h2 {
-    color:#87A2FF ;
+    color: #87A2FF;
+}
+
+.game-container {
+    background-color: white; /* Cor de fundo branca */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+    z-index: 1; /* Coloca a coluna acima da imagem de fundo */
+    margin: 40px auto; /* Margem vertical ajustada */
+    max-width: 400px; /* Largura máxima do contêiner */
+    position: relative; /* Para alinhamento */
+    top: 20%; /* Ajuste a posição para centralizar verticalmente */
 }
 
 .game-board {
@@ -155,19 +167,6 @@ body {
     margin-top: -10px; /* Ajusta o espaço entre o balão e a garotinha */
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Coloca a modal no topo de todos os elementos */
-}
-
 /* Ajustes para a imagem de vitória na modal */
 .victory-image {
     width: 80px; /* Tamanho da imagem */
@@ -214,3 +213,15 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
 }
 
+.background-image {
+    position: fixed; /* Use fixed para que fique sempre no fundo */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/jogodamemoria.jpg'); /* Certifique-se de que o caminho está correto */
+    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+    z-index: -1;
+    opacity: 0.5; /* Coloca atrás de outros elementos */
+}

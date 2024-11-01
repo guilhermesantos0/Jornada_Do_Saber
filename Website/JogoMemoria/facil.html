@@ -10,18 +10,31 @@
 </head>
 <body>
 
+    <div class="background-image"></div> <!-- Imagem de fundo -->
+
     <!-- Botão de Retorno -->
     <a href="index.html" class="return-button">
         <img src="../images/return-icon.png" alt="Voltar">
     </a>
 
     <div class="container">
-        <h1>Jogo da Memória</h1>
-        <h2>Nível Fácil</h2>
+        <div class="game-container">
+            <h1>Jogo da Memória</h1>
+            <h2>Nível Fácil</h2>
 
-        <!-- Tabuleiro do Jogo -->
-        <div id="game-board" class="game-board">
-            <!-- Cards do jogo gerados dinamicamente -->
+            <!-- Tabuleiro do Jogo -->
+            <div id="game-board" class="game-board">
+                <!-- Cards do jogo gerados dinamicamente -->
+            </div>
+
+            <!-- Imagem da Garotinha e Balão de Fala -->
+            <div class="character-section">
+                <div class="baloon-container">
+                    <img src="../images/thought_balloon.png" alt="Balão de fala" class="baloon-image">
+                    <p class="child-speech">Será que você consegue achar?</p>
+                </div>
+                <img src="../images/child_1.png" alt="Garotinha" class="girl-image">
+            </div>
         </div>
 
         <!-- Modal de vitória -->
@@ -106,15 +119,6 @@
 
         startGame();
     </script>
-
-    <!-- Imagem da Garotinha com Balão de Fala -->
-    <div class="character-section">
-        <div class="baloon-container">
-            <img src="../images/thought_balloon.png" alt="Balão de fala" class="baloon-image">
-            <p class="child-speech">Será que você consegue achar?</p>
-        </div>
-        <img src="../images/child_1.png" alt="Garotinha" class="girl-image">
-    </div>
 
 </body>
 </html>
