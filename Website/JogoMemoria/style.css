@@ -30,6 +30,30 @@ main {
   padding-top: 0;
 }
 
+main {
+  position: relative;
+  background-image: url('../images/jogodamemoria.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /*Cor preta com 50% de opacidade */
+  z-index: 1;
+}
+
+main > * {
+  position: relative;
+  z-index: 2;
+}
+
 .container {
   text-align: center;
   padding: 20px;
@@ -38,8 +62,12 @@ main {
 
 h1 {
   font-size: 2rem;
-  color: #FF8225;
+  color: white;
   margin-bottom: 10px;
+}
+
+p {
+  color: white;
 }
 
 /* -------------------------------------------- */
@@ -47,8 +75,9 @@ h1 {
 .difficulty-buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   align-items: center;
+  padding: 10%;
 }
 
 .difficulty-buttons button {
@@ -78,13 +107,6 @@ h1 {
   background-color: #6E8DD9;
 }
 
-/* Título de Regras */
-.game-rules h2 {
-  font-size: 1.5rem;
-  color: #FF8225;
-  margin-bottom: 10px;
-}
-
 /* -------------------------------------------- */
 /* Header */
 header {
@@ -93,7 +115,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f58220;
+  background-color: #f5aa20;
   position: relative;
   min-height: 100px;
 }
@@ -171,7 +193,7 @@ header nav {
 /* -------------------------------------------- */
 /* Footer */
 footer {
-  background-color: #f58220;
+  background-color: #f5aa20;
   padding: 20px 0;
   display: flex;
   justify-content: space-evenly;
@@ -192,6 +214,7 @@ footer h2 {
 
 footer p {
   font-size: 1rem;
+  color: black;
 }
 
 footer nav a {
@@ -294,8 +317,8 @@ footer nav a:hover::after {
 }
 
 /* Remove efeitos da logo */
-header .logo a, header .logo a::after {
+/* header .logo a, header .logo a::after {
   text-decoration: none !important;
   content: none !important;
   transition: none !important;
-}
+} */

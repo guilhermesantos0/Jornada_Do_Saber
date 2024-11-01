@@ -64,6 +64,7 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Modal de Vitória */
 .modal {
     position: fixed;
     top: 0;
@@ -74,6 +75,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .modal.hidden {
@@ -85,17 +87,71 @@ body {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    width: 550px;
+    max-width: 90%;
+    position: relative;
 }
 
+.modal h2 {
+    font-size: 2.5rem;
+    color: #76c043;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Alinhamento do Conteúdo da Modal */
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.congratulations-text {
+    font-size: 1.5rem;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo da Imagem de Vitória */
+.victory-image {
+    max-width: 80px;
+    height: auto;
+    position: absolute;
+    right: 1vw;
+}
+
+/* Estilo do Botão \"Voltar\" */
 .modal button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4A90E2;
+    padding: 15px 60px;
+    font-size: 1.2rem;
+    background-color: #f58220;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.modal button:hover {
+    background-color: #e67319;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo para o botão de retorno */
@@ -103,10 +159,16 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 40px; /* Ajuste o tamanho conforme necessário */
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    background-color: white; /* Adiciona um fundo branco */
+    border-radius: 10px; /* Mantém a aparência arredondada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .return-button img {
@@ -180,36 +242,27 @@ body {
     position: relative;
 }
 
-.exit-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px; /* Ajuste o tamanho conforme necessário */
-    height: 20px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+/* Imagem de Fundo */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/jogodamemoria.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    /* opacity: 0.5; */
 }
 
-.exit-icon:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
-}
-
-/* Estilo para o botão "Jogar Novamente" */
-.modal button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4A90E2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
-}
-
-/* Efeito ao passar o mouse */
-.modal button:hover {
-    background-color: #357ABD; /* Cor um pouco mais escura */
-    transform: scale(1.05); /* Leve aumento de tamanho */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+.game-wrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 40px;
+    max-width: 800px;
+    width: 31%;
+    margin-top: 12vh;
 }
