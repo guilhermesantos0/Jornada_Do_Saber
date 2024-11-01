@@ -316,9 +316,30 @@ footer nav a:hover::after {
   }
 }
 
-/* Remove efeitos da logo */
-/* header .logo a, header .logo a::after {
-  text-decoration: none !important;
-  content: none !important;
-  transition: none !important;
-} */
+/* Efeitos de Navegação */
+nav a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a::after, footer nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after, footer nav a:hover::after {
+  width: 100%;
+}
+
+footer nav a {
+  display: inline-block;
+}
