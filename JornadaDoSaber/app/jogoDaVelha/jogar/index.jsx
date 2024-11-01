@@ -150,7 +150,7 @@ const JogoDaVelhaGame = () => {
         }
         setBoard(newBoard);
         setIsPlayerTurn(true);
-      }, 700);
+      }, 2500);
     }
   }, [isPlayerTurn]);
 
