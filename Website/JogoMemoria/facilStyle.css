@@ -1,5 +1,11 @@
-/* CSS para o modo fácil */
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Estilos do Corpo */
 body {
     font-family: 'Baloo Thambi 2', cursive;
     color: black;
@@ -12,6 +18,7 @@ body {
     padding: 0;
 }
 
+/* Container Principal */
 .container {
     text-align: center;
 }
@@ -24,18 +31,21 @@ body {
     color: #87A2FF;
 }
 
+/* Container do Jogo */
 .game-container {
-    background-color: white; /* Cor de fundo branca */
-    padding: 20px; /* Espaçamento interno */
-    border-radius: 10px; /* Cantos arredondados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
-    z-index: 1; /* Coloca a coluna acima da imagem de fundo */
-    margin: 40px auto; /* Margem vertical ajustada */
-    max-width: 400px; /* Largura máxima do contêiner */
-    position: relative; /* Para alinhamento */
-    top: 20%; /* Ajuste a posição para centralizar verticalmente */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin: 40px auto;
+    margin-top: 15vh;
+    max-width: 400px;
+    position: relative;
+    top: 20%;
 }
 
+/* Tabuleiro do Jogo */
 .game-board {
     display: grid;
     grid-template-columns: repeat(2, 100px);
@@ -44,6 +54,7 @@ body {
     margin-top: 20px;
 }
 
+/* Estilo das Cartas */
 .card {
     width: 100px;
     height: 100px;
@@ -59,7 +70,8 @@ body {
     transform: rotateY(180deg);
 }
 
-.card .front, .card .back {
+.card .front,
+.card .back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -76,6 +88,7 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Modal de Vitória */
 .modal {
     position: fixed;
     top: 0;
@@ -86,6 +99,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .modal.hidden {
@@ -97,28 +111,103 @@ body {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    width: 550px;
+    max-width: 90%;
+    position: relative;
 }
 
+.modal h2 {
+    font-size: 2.5rem;
+    color: #76c043;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Alinhamento do Conteúdo da Modal */
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.congratulations-text {
+    font-size: 1.5rem;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo da Imagem de Vitória */
+.victory-image {
+    max-width: 80px;
+    height: auto;
+    position: absolute;
+    right: 1vw;
+}
+
+/* Estilo do Botão \"Voltar\" */
 .modal button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4A90E2;
+    padding: 15px 60px;
+    font-size: 1.2rem;
+    background-color: #f58220;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease;
+    margin-top: 20px;
 }
 
-/* Estilo para o botão de retorno */
+.modal button:hover {
+    background-color: #e67319;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o Ícone de Saída no Modal */
+.exit-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.exit-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para o Botão de Retorno */
 .return-button {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 40px; /* Ajuste o tamanho conforme necessário */
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    background-color: white; /* Adiciona um fundo branco */
+    border-radius: 10px; /* Mantém a aparência arredondada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .return-button img {
@@ -127,7 +216,7 @@ body {
 }
 
 .return-button:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.1);
 }
 
 /* Garotinha e Balão de Fala */
@@ -138,7 +227,7 @@ body {
     margin-top: 20px;
 }
 
-/* Contêiner para balão e texto */
+/* Contêiner para Balão e Texto */
 .baloon-container {
     position: relative;
     display: flex;
@@ -147,81 +236,114 @@ body {
 }
 
 .baloon-image {
-    width: 110px; /* Tamanho do balão */
+    width: 110px;
     height: auto;
 }
 
 .child-speech {
     position: absolute;
-    top: 5%; /* Posiciona o texto dentro do balão */
-    font-size: 0.6rem; /* Tamanho menor para caber no balão */
+    top: 17%;
+    font-size: 0.6rem;
     color: black;
     text-align: center;
-    width: 60px; /* Ajusta a largura para caber no balão */
+    width: 60px;
     line-height: 1.2;
 }
 
 .girl-image {
-    width: 80px; /* Tamanho da garotinha */
+    width: 80px;
     height: auto;
-    margin-top: -10px; /* Ajusta o espaço entre o balão e a garotinha */
+    margin-top: -10px;
 }
 
-/* Ajustes para a imagem de vitória na modal */
-.victory-image {
-    width: 80px; /* Tamanho da imagem */
-    height: auto;
-    margin-bottom: 10px; /* Espaçamento entre a imagem e o texto */
-}
-
-/* Estilos para o ícone de saída no modal */
-.modal-content {
-    position: relative;
-}
-
-.exit-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px; /* Ajuste o tamanho conforme necessário */
-    height: 20px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.exit-icon:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
-}
-
-/* Estilo para o botão "Jogar Novamente" */
-.modal button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4A90E2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
-}
-
-/* Efeito ao passar o mouse */
-.modal button:hover {
-    background-color: #357ABD; /* Cor um pouco mais escura */
-    transform: scale(1.05); /* Leve aumento de tamanho */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
-}
-
+/* Imagem de Fundo */
 .background-image {
-    position: fixed; /* Use fixed para que fique sempre no fundo */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/jogodamemoria.jpg'); /* Certifique-se de que o caminho está correto */
-    background-size: cover; /* Faz a imagem cobrir todo o fundo */
-    background-position: center; /* Centraliza a imagem */
+    background-image: url('../images/jogodamemoria.jpg');
+    background-size: cover;
+    background-position: center;
     z-index: -1;
-    opacity: 0.5; /* Coloca atrás de outros elementos */
+    opacity: 0.5;
+}
+
+/* Regras de mídia para responsividade */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .modal h2 {
+        font-size: 2rem;
+    }
+
+    .congratulations-text {
+        font-size: 1.2rem;
+    }
+
+    .modal button {
+        padding: 10px 40px;
+        font-size: 1rem;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 80px);
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .return-button {
+        top: 10px;
+        left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .modal h2 {
+        font-size: 1.8rem;
+    }
+
+    .congratulations-text {
+        font-size: 1rem;
+    }
+
+    .modal button {
+        padding: 8px 30px;
+        font-size: 0.9rem;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 70px);
+        gap: 5px;
+    }
+
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+
+    .victory-image {
+        max-width: 60px;
+    }
+
+    .return-button {
+        top: 5px;
+        left: 5px;
+        width: 30px;
+        height: 30px;
+    }
 }
