@@ -25,7 +25,7 @@ const App = () => {
 
         <Text style={styles.title}>Jogos</Text>
         <Text style={styles.description}>
-        Possibilita o cadastro de consultas, configurando lembretes para a data agendada, além de registrar mais informações a respeito dela, podendo acessá-la para rever, quando necessário.
+        Os jogos são uma forma emocionante de entretenimento que combina diversão e desafio. Eles promovem habilidades sociais, estratégicas e cognitivas, oferecendo experiências únicas para jogadores de todas as idades!
         </Text>
 
         <Link href={'tutorial/3'} asChild>

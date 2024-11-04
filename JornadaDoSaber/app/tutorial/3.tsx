@@ -25,7 +25,7 @@ const App = () => {
 
         <Text style={styles.title}>Jogo da Memória</Text>
         <Text style={styles.description}>
-        Área do aplicativo para ter controle dos medicamentos jaá cadastrados e dos já encerrados, podendo reativá-los. Para cadastrar medicamento é necessário inserir seu nome, dosagem prescrita, período e intervalos de uso.
+        O Jogo da Memória é uma divertida atividade que estimula a concentração e a agilidade mental. Desafie-se a encontrar pares de cartas e treine sua memória enquanto se diverte!
         </Text>
 
         <Link href={'tutorial/4'} asChild>
