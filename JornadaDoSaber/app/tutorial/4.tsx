@@ -25,7 +25,7 @@ const App = () => {
 
         <Text style={styles.title}>Jogo da Memória</Text>
         <Text style={styles.description}>
-        Área do aplicativo para ter controle dos medicamentos jaá cadastrados e dos já encerrados, podendo reativá-los. Para cadastrar medicamento é necessário inserir seu nome, dosagem prescrita, período e intervalos de uso.
+        O Jogo da Velha é um clássico passatempo que desafia a lógica e a estratégia. Em partidas rápidas, dois jogadores competem para alinhar três símbolos em uma grade 3x3, testando suas habilidades de raciocínio!
         </Text>
 
         <Link href={'home'} asChild>

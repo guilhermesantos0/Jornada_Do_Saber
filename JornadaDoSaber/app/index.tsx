@@ -25,8 +25,7 @@ const App = () => {
 
         <Text style={styles.title}>Jornada do Saber</Text>
         <Text style={styles.description}>
-          O aplicativo YE Gestão de Saúde irá te auxiliar com a autogestão da sua saúde,
-          mantendo controle de seus medicamentos, aferições, consultas e resultados de exames.
+        "Jornada do Saber" é um jogo interativo projetado especialmente para autistas, combinando os clássicos Jogo da Velha e Jogo da Memória. Explore o universo do Semeador enquanto desenvolve habilidades de raciocínio e memória em um ambiente acolhedor e divertido!  
         </Text>
 
         <Link href={'tutorial/2'} asChild>
