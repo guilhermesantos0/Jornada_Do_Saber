@@ -1,4 +1,4 @@
-/* CSS para o modo difícil */
+/* CSS responsivo para o modo difícil */
 
 body {
     font-family: 'Baloo Thambi 2', cursive;
@@ -14,22 +14,27 @@ body {
 
 .container {
     text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .container h1 {
-    color:#FF8225 ;
+    color: #FF8225;
 }
 
 .container h2 {
-    color:#87A2FF ;
+    color: #87A2FF;
 }
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(3, 1fr); /* Altera para 3 colunas */
     gap: 10px;
     justify-content: center;
     margin-top: 20px;
+    width: 100%;
+    max-width: 600px; /* Ajusta o container para respeitar os cards e a responsividade */
 }
 
 .card {
@@ -64,7 +69,6 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Modal de Vitória */
 .modal {
     position: fixed;
     top: 0;
@@ -99,7 +103,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Alinhamento do Conteúdo da Modal */
 .modal-body {
     display: flex;
     justify-content: center;
@@ -126,7 +129,6 @@ body {
     align-items: center;
 }
 
-/* Estilo da Imagem de Vitória */
 .victory-image {
     max-width: 80px;
     height: auto;
@@ -134,7 +136,6 @@ body {
     right: 1vw;
 }
 
-/* Estilo do Botão \"Voltar\" */
 .modal button {
     padding: 15px 60px;
     font-size: 1.2rem;
@@ -154,7 +155,6 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo para o botão de retorno */
 .return-button {
     position: absolute;
     top: 20px;
@@ -164,8 +164,8 @@ body {
     padding: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    background-color: white; /* Adiciona um fundo branco */
-    border-radius: 10px; /* Mantém a aparência arredondada */
+    background-color: white;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,10 +177,9 @@ body {
 }
 
 .return-button:hover {
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.1);
 }
 
-/* Garotinha e Balão de Fala */
 .character-section {
     display: flex;
     flex-direction: column;
@@ -188,7 +187,6 @@ body {
     margin-top: 20px;
 }
 
-/* Contêiner para balão e texto */
 .baloon-container {
     position: relative;
     display: flex;
@@ -197,52 +195,26 @@ body {
 }
 
 .baloon-image {
-    width: 110px; /* Tamanho do balão */
+    width: 110px;
     height: auto;
 }
 
 .child-speech {
     position: absolute;
-    top: 5%; /* Posiciona o texto dentro do balão */
-    font-size: 0.6rem; /* Tamanho menor para caber no balão */
+    top: 5%;
+    font-size: 0.6rem;
     color: black;
     text-align: center;
-    width: 60px; /* Ajusta a largura para caber no balão */
+    width: 60px;
     line-height: 1.2;
 }
 
 .girl-image {
-    width: 80px; /* Tamanho da garotinha */
+    width: 80px;
     height: auto;
-    margin-top: -10px; /* Ajusta o espaço entre o balão e a garotinha */
+    margin-top: -10px;
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Coloca a modal no topo de todos os elementos */
-}
-
-/* Ajustes para a imagem de vitória na modal */
-.victory-image {
-    width: 80px; /* Tamanho da imagem */
-    height: auto;
-    margin-bottom: 10px; /* Espaçamento entre a imagem e o texto */
-}
-
-/* Estilos para o ícone de saída no modal */
-.modal-content {
-    position: relative;
-}
-
-/* Imagem de Fundo */
 .background-image {
     position: fixed;
     top: 0;
@@ -253,7 +225,6 @@ body {
     background-size: cover;
     background-position: center;
     z-index: -1;
-    /* opacity: 0.5; */
 }
 
 .game-wrapper {
@@ -263,6 +234,30 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 40px;
     max-width: 800px;
-    width: 31%;
+    width: auto;
     margin-top: 12vh;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .game-board {
+        grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas em telas menores */
+        gap: 10px;
+    }
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-board {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas para telas pequenas */
+        gap: 8px;
+        max-width: 400px;
+    }
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
 }
