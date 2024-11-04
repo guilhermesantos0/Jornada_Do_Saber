@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Modal, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Modal, Dimensions, Image } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import WinImage from '@/assets/images/jogoDaVelha/win.png';
+import LoseImage from '@/assets/images/jogoDaVelha/perdeu.png';
 import Logo from '@/components/Logo';
 import Back from '@/components/Back';
 
@@ -10,11 +12,11 @@ const JogoDaVelhaGame = () => {
   const router = useRouter();
   const { difficulty } = useLocalSearchParams();
   const [board, setBoard] = useState(Array(9).fill(null));
-  const [isPlayerTurn, setIsPlayerTurn] = useState(Math.random() < 0.5); // Define aleatoriamente quem começa
+  const [isPlayerTurn, setIsPlayerTurn] = useState(Math.random() < 0.5);
   const [message, setMessage] = useState('');
   const [showResultModal, setShowResultModal] = useState(false);
   const [resultMessage, setResultMessage] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState(isPlayerTurn ? '#FFA500' : '#1E90FF');
+  const [backgroundColor, setBackgroundColor] = useState(isPlayerTurn ? '#FFF' : '#FFF');
   const [turnMessage, setTurnMessage] = useState(isPlayerTurn ? 'Vez da IA' : 'Sua Vez');
 
   useEffect(() => {
@@ -23,7 +25,6 @@ const JogoDaVelhaGame = () => {
   }, [difficulty]);
 
   useEffect(() => {
-    setBackgroundColor(isPlayerTurn ? '#FFA500' : '#1E90FF');
     setTurnMessage(isPlayerTurn ? 'Sua Vez' : 'Vez da IA');
   }, [isPlayerTurn]);
 
@@ -139,6 +140,7 @@ const JogoDaVelhaGame = () => {
       setBoard(Array(9).fill(null));
       setIsPlayerTurn(true);
     } else if (!isPlayerTurn) {
+      const responseTime = board.every(cell => cell === null) ? 1300 : 2500;
       setTimeout(() => {
         let newBoard;
         if (difficulty === '1') {
@@ -150,7 +152,7 @@ const JogoDaVelhaGame = () => {
         }
         setBoard(newBoard);
         setIsPlayerTurn(true);
-      }, 2500);
+      }, responseTime);
     }
   }, [isPlayerTurn]);
 
@@ -158,6 +160,7 @@ const JogoDaVelhaGame = () => {
     <SafeAreaView style={[styles.container, { backgroundColor }]}>
       <Back url="jogoDaVelha" />
       <Logo />
+      <Text style={styles.title}>JOGO DA MEMÓRIA</Text>
       <Text style={styles.difficultyText}>{message}</Text>
       <Text style={styles.turnText}>{turnMessage}</Text>
       <View style={styles.board}>
@@ -166,8 +169,8 @@ const JogoDaVelhaGame = () => {
             key={index}
             style={[
               styles.cell,
-              index % 3 !== 2 && { borderRightWidth: 0 }, // Bordas internas à direita
-              index < 6 && { borderBottomWidth: 0 }, // Bordas internas inferiores
+              index % 3 !== 2 && { borderRightWidth: 0 },
+              index < 6 && { borderBottomWidth: 0 }, 
             ]}
             onPress={() => handlePlayerMove(index)}
           >
@@ -176,7 +179,6 @@ const JogoDaVelhaGame = () => {
         ))}
       </View>
 
-      {/* Modal de resultado */}
       <Modal
         transparent={true}
         visible={showResultModal}
@@ -185,6 +187,11 @@ const JogoDaVelhaGame = () => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
+            {resultMessage === 'Você ganhou!' ? (
+              <Image source={WinImage} style={styles.resultImage} />
+            ) : (
+              <Image source={LoseImage} style={styles.resultImage} />
+            )}
             <Text style={styles.modalText}>{resultMessage}</Text>
           </View>
         </View>
@@ -229,6 +236,11 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
   },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#FF6D00',
+  },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -255,6 +267,11 @@ const styles = StyleSheet.create({
   closeButtonText: {
     fontSize: 18,
     color: '#fff',
+  },
+  resultImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
   },
 });
 

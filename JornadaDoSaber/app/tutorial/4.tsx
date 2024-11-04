@@ -23,7 +23,7 @@ const App = () => {
           <View style={[styles.indicatorBar, styles.activeIndicator]} />
         </View>
 
-        <Text style={styles.title}>Jogo da Memória</Text>
+        <Text style={styles.title}>Jogo da Velha</Text>
         <Text style={styles.description}>
         Área do aplicativo para ter controle dos medicamentos jaá cadastrados e dos já encerrados, podendo reativá-los. Para cadastrar medicamento é necessário inserir seu nome, dosagem prescrita, período e intervalos de uso.
         </Text>

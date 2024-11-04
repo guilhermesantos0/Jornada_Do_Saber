@@ -19,7 +19,6 @@ const JogoDaVelha = () => {
         <Text style={styles.title}>JOGO DA VELHA</Text>
         <View style={styles.subtitleContainer}>
           <Text style={styles.subtitle}>O jogo da velha apresenta três modos de dificuldade: Fácil, Médio e Difícil</Text>
-          <Image style={styles.subtitleImage} source={require('@/assets/images/memoria/lamp.png')} />
         </View>
 
         <View style={styles.buttonContainer}>

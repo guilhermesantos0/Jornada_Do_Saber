@@ -31,7 +31,7 @@ const HomeScreen = () => {
         <Link href="/jogoDaVelha" asChild>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
-              <Image style={styles.buttonImage} source={require('@/assets/images/home/tangram.png')} />
+              <Image style={styles.buttonImage} source={require('@/assets/images/home/jogoDaVelhaIcons.png')} />
             </View>
             <Text style={styles.buttonText}>JOGO DA VELHA</Text>
           </TouchableOpacity>
