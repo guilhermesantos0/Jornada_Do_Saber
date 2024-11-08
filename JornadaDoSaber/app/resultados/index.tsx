@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
 import { Link } from 'expo-router';
-
 import Logo from '@/components/Logo';
+import Back from '@/components/Back';
 import ChildBaloon from '@/components/ChildBaloon';
 
 const screenWidth = Dimensions.get('window').width;
 
-const HomeScreen = () => {
+const ResultScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
 
+      <Back url="home" />
       <Logo />
 
-      <Text style={styles.title}>JOGOS</Text>
-      <ChildBaloon label='Confira os Jogos !!' />
+      <Text style={styles.title}>Resultados</Text>
+      <ChildBaloon label='Confira os Resultados !!' />
 
 
       <View style={styles.buttonContainer}>
-        <Link href="/memoria" asChild>
+        <Link href="/resultados/memoria" asChild>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
               <Image style={styles.buttonImage} source={require('@/assets/images/home/memoria.png')} />
@@ -28,21 +29,12 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </Link>
 
-        <Link href="/jogoDaVelha" asChild>
+        <Link href="/resultados/jogoDaVelha" asChild>
           <TouchableOpacity style={styles.button}>
             <View style={styles.buttonImageContainer}>
               <Image style={styles.buttonImage} source={require('@/assets/images/home/jogoDaVelhaIcons.png')} />
             </View>
             <Text style={styles.buttonText}>JOGO DA VELHA</Text>
-          </TouchableOpacity>
-        </Link>
-
-        <Link href="/resultados" asChild>
-          <TouchableOpacity style={styles.button}>
-            <View style={styles.buttonImageContainer}>
-              <Image style={styles.buttonImage} source={require('@/assets/images/home/resultados.png')} />
-            </View>
-            <Text style={styles.buttonText}>RESULTADOS</Text>
           </TouchableOpacity>
         </Link>
 
@@ -97,7 +89,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     gap: 15,
-    marginTop: 15
+    marginTop: 10
   },
   button: {
     backgroundColor: '#4A90E2',
@@ -108,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'row',
     width: '80%',
-    height: '18.5%',
+    height: '28.5%',
   },
   buttonImageContainer: {
     minWidth: 50,
@@ -161,4 +153,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default ResultScreen;
