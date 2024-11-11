@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Modal, Dimensions, Image } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jogoDaVelhaResults from '@/resultados/jogoDaVelha';
 import WinImage from '@/assets/images/jogoDaVelha/win.png';
 import LoseImage from '@/assets/images/jogoDaVelha/perdeu.png';
 import Logo from '@/components/Logo';
@@ -132,11 +134,12 @@ const JogoDaVelhaGame = () => {
       setResultMessage(winner);
       setShowResultModal(true);
       setIsPlayerTurn(false);
+      storeResult(winner);
       setTimeout(() => {
         setShowResultModal(false);
         router.push("home");
       }, 1700);
-    } else if (!board.includes(null)) {
+    }else if (!board.includes(null)) {
       setBoard(Array(9).fill(null));
       setIsPlayerTurn(true);
     } else if (!isPlayerTurn) {
@@ -155,6 +158,21 @@ const JogoDaVelhaGame = () => {
       }, responseTime);
     }
   }, [isPlayerTurn]);
+
+  const storeResult = async (result) => {
+    try {
+      const levelMessage = difficulty === '1' ? 'Fácil' : difficulty === '2' ? 'Médio' : 'Difícil';
+      const newResult = { result, level: levelMessage };
+      
+      const storedResults = await AsyncStorage.getItem('jogoDaVelhaResults');
+      const resultsArray = storedResults ? JSON.parse(storedResults) : [];
+      
+      resultsArray.unshift(newResult); 
+      await AsyncStorage.setItem('jogoDaVelhaResults', JSON.stringify(resultsArray));
+    } catch (error) {
+      console.error("Erro ao salvar resultado", error);
+    }
+  };
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }]}>

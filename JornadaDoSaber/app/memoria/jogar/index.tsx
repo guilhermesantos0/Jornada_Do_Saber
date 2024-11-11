@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, StyleSheet, Text, Dimensions, SafeAreaView, Animated, Modal, TouchableOpacity, Image } from 'react-native';
 import MemoryCard from '@/components/MemoryCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import jogoDaVelhaResults from '@/resultados/memoria';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import ChildBaloon from '@/components/ChildBaloon';
 import Back from '@/components/Back';
@@ -21,6 +23,29 @@ const Jogar = () => {
   const router = useRouter();
   const { difficulty } = useLocalSearchParams();
   
+  // Estado para armazenar o tempo inicial e calcular a duração
+  const [startTime, setStartTime] = useState(0);
+  const [shuffledCards, setShuffledCards] = useState<number[]>([]);
+  const [flippedCards, setFlippedCards] = useState<boolean[]>([]);
+  const [matchedCards, setMatchedCards] = useState<boolean[]>([]);
+  const [selectedCards, setSelectedCards] = useState<number[]>([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const pulseAnim = useRef<Animated.Value[]>([]).current;
+
+  useEffect(() => {
+    setStartTime(Date.now()); // Inicia o cronômetro
+    const numberOfPairs = getCardPairs();
+    const totalCards = numberOfPairs * 2;
+
+    if (pulseAnim.length === 0) {
+      for (let i = 0; i < totalCards; i++) {
+        pulseAnim[i] = new Animated.Value(1);
+      }
+    }
+
+    resetGame(numberOfPairs, totalCards);
+  }, [difficulty]);
+
   const getCardPairs = () => {
     switch (difficulty) {
       case '1':
@@ -33,26 +58,6 @@ const Jogar = () => {
         return 2;
     }
   };
-
-  const [shuffledCards, setShuffledCards] = useState<number[]>([]);
-  const [flippedCards, setFlippedCards] = useState<boolean[]>([]);
-  const [matchedCards, setMatchedCards] = useState<boolean[]>([]);
-  const [selectedCards, setSelectedCards] = useState<number[]>([]);
-  const [modalVisible, setModalVisible] = useState(false);
-  const pulseAnim = useRef<Animated.Value[]>([]).current;
-
-  useEffect(() => {
-    const numberOfPairs = getCardPairs();
-    const totalCards = numberOfPairs * 2;
-
-    if (pulseAnim.length === 0) {
-      for (let i = 0; i < totalCards; i++) {
-        pulseAnim[i] = new Animated.Value(1);
-      }
-    }
-
-    resetGame(numberOfPairs, totalCards);
-  }, [difficulty]);
 
   const resetGame = (numberOfPairs: number, totalCards: number) => {
     const newShuffledCards = [...Array(numberOfPairs).keys()]
@@ -99,6 +104,7 @@ const Jogar = () => {
 
       if (newMatchedCards.every(Boolean)) {
         setModalVisible(true);
+        saveResult(); 
       }
     } else {
       setTimeout(() => {
@@ -125,6 +131,26 @@ const Jogar = () => {
     } else if (selectedCards.length === 1) {
       setSelectedCards([selectedCards[0], index]);
       checkMatch(selectedCards[0], index);
+    }
+  };
+
+  const saveResult = async () => {
+    const endTime = Date.now();
+    const timeTaken = Math.round((endTime - startTime) / 1000); // Tempo em segundos
+    
+    const resultData = {
+      result: 'Venceu',
+      level: difficulty === '1' ? 'Fácil' : difficulty === '2' ? 'Médio' : 'Difícil',
+      time: timeTaken,
+    };
+
+    try {
+      const storedResults = await AsyncStorage.getItem('memoriaResults');
+      const results = storedResults ? JSON.parse(storedResults) : [];
+      results.push(resultData);
+      await AsyncStorage.setItem('memoriaResults', JSON.stringify(results));
+    } catch (error) {
+      console.error("Erro ao salvar o resultado:", error);
     }
   };
 
@@ -157,7 +183,7 @@ const Jogar = () => {
             <MemoryCard
               size={difficulty}
               isFlipped={flippedCards[index]}
-              cardImage={cardImages[cardIndex]} // Acesse a imagem usando o índice
+              cardImage={cardImages[cardIndex]}
               onPress={() => handleCardPress(index)}
             />
           </Animated.View>
@@ -242,24 +268,22 @@ const styles = StyleSheet.create({
   modalSubtitle: {
     fontSize: 16,
     color: '#333',
+    marginBottom: 10,
   },
   modalImage: {
-    position: 'absolute',
-    right: '5%',
-    bottom: '20%',
-    width: 70,
+    width: 100,
+    height: 100,
+    marginVertical: 20,
   },
   button: {
-    marginTop: 20,
+    backgroundColor: '#4CAF50',
+    paddingHorizontal: 30,
     paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: '#FFA500',
     borderRadius: 5,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 16,
   },
 });
 

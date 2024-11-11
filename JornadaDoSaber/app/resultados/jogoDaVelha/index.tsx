@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, Dimensions } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from '@/components/Logo';
 import Back from '@/components/Back';
-import ChildBaloon from '@/components/ChildBaloon';
 
-const resultsData = []; 
+const { width: screenWidth } = Dimensions.get('window');
 
 export default function ResultadoJogoDaVelha() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    setResults(resultsData); 
+    const loadResults = async () => {
+      try {
+        const storedResults = await AsyncStorage.getItem('jogoDaVelhaResults');
+        setResults(storedResults ? JSON.parse(storedResults) : []);
+      } catch (error) {
+        console.error("Erro ao carregar resultados", error);
+      }
+    };
+    loadResults();
   }, []);
 
   return (
@@ -19,7 +27,7 @@ export default function ResultadoJogoDaVelha() {
       <Logo />
       <Text style={styles.title}>JOGO DA VELHA</Text>
       <Text style={styles.subtitle}>Confira os Resultados no Jogo da Velha :)</Text>
-      
+
       {results.length === 0 ? (
         <View style={styles.noResultsContainer}>
           <Image
@@ -32,14 +40,19 @@ export default function ResultadoJogoDaVelha() {
         <FlatList
           data={results}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.resultContainer}>
-              <Text style={styles.resultText}>Resultado: 
-                <Text style={[styles.resultStatus, { color: item.result === 'Venceu' ? '#4CAF50' : '#FF0000' }]}> {item.result}</Text>
-              </Text>
-              <Text style={styles.levelText}>Nível: <Text style={styles.level}>{item.level}</Text></Text>
-            </View>
-          )}
+          renderItem={({ item }) => {
+            const formattedResult = item.result === 'Você ganhou!' ? 'Venceu' : item.result === 'Você perdeu!' ? 'Perdeu' : item.result;
+
+            return (
+              <View style={styles.resultContainer}>
+                <Text style={styles.resultText}>
+                  Resultado: 
+                  <Text style={[styles.resultStatus, { color: formattedResult === 'Venceu' ? '#4CAF50' : '#FF0000' }]}> {formattedResult}</Text>
+                </Text>
+                <Text style={styles.levelText}>Nível: <Text style={styles.level}>{item.level}</Text></Text>
+              </View>
+            );
+          }}
         />
       )}
     </View>
@@ -58,12 +71,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FF6D00',
     marginTop: 80,
+    textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
     color: '#333',
     marginVertical: 10,
     fontWeight: '600',
+    textAlign: 'center',
   },
   noResultsContainer: {
     alignItems: 'center',
@@ -79,20 +94,20 @@ const styles = StyleSheet.create({
     color: '#333',
     marginVertical: 10,
     fontWeight: '600',
-
+    textAlign: 'center',
   },
   resultContainer: {
     backgroundColor: '#BBDEFB',
     borderRadius: 10,
     padding: 15,
-    width: '90%',
+    width: screenWidth * 0.9,
     marginVertical: 8,
-    alignItems: 'center',
   },
   resultText: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
+    marginBottom: 5,
   },
   resultStatus: {
     fontWeight: 'bold',
