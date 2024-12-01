@@ -159,6 +159,36 @@ const Jogar = () => {
     router.push('/memoria');
   };
 
+  // BANCO DE DADOS
+  const DBsaveResult = async () => {
+    const endTime = Date.now();
+    const timeTaken = Math.round((endTime - startTime) / 1000); // Tempo em segundos
+  
+    const resultData = {
+      result: 'Venceu',
+      level: difficulty === '1' ? 'Fácil' : difficulty === '2' ? 'Médio' : 'Difícil',
+      time: timeTaken,
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3001/jogo-da-memoria', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(resultData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro ao salvar resultado no servidor');
+      }
+      console.log('Resultado salvo com sucesso!');
+    } catch (error) {
+      console.error('Erro ao salvar o resultado:', error);
+    }
+  };
+  
+
   return (
     <SafeAreaView style={styles.container}>
       <Back url="/memoria" />

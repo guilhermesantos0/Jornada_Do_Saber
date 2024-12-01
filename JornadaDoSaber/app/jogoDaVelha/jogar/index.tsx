@@ -174,6 +174,27 @@ const JogoDaVelhaGame = () => {
     }
   };
 
+  // BANCO DE DADOS
+  const DBstoreResult = async (result) => {
+    try {
+      const levelMessage = difficulty === '1' ? 'Fácil' : difficulty === '2' ? 'Médio' : 'Difícil';
+      const newResult = {
+        resultado: result === 'Você ganhou!' ? 'ganhou' : 'perdeu', 
+        nivel: levelMessage 
+      };
+  
+      await fetch('http://localhost:3001/jogo-da-velha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newResult),
+      });
+    } catch (error) {
+      console.error("Erro ao salvar resultado no backend", error);
+    }
+  };
+
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }]}>
       <Back url="jogoDaVelha" />
@@ -217,6 +238,7 @@ const JogoDaVelhaGame = () => {
     </SafeAreaView>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
