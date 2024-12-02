@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   hamburgerMenu: {

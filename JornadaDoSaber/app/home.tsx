@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 32,
+    fontSize: 23,
     fontWeight: 'bold',
   },
   hamburgerMenu: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   },
   rightHand: {
     position: 'absolute',
-    bottom: -115,
+    bottom: -85,
     right: 0,
     width: 250,
     height: 250,

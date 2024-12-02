@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     thoughtBalloon: {
-        width: 200,
+        width: 250,
         height: 100,
         position: 'absolute',
         top: 0,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         position: 'absolute',
         top: 10,
-        right: 115,
+        right: 145,
         width: '50%',
         fontWeight: 'bold'
     },
